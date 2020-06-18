@@ -1,0 +1,35 @@
+@use '../../parameters' as p;
+
+ul {
+    
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border: 1px solid red;
+    background-color: #ffffff;
+    
+    li{
+        list-style-type: none;
+        display: block;
+        
+        @each $categorie, $lien in p.$icones{
+            .icon-#{$categorie}::before{
+                content: url(#{$lien});
+                display: inline-block;
+                position: relative;
+                bottom: 1rem;
+            }
+        }
+        
+        a{
+            text-decoration: none;
+            color: #000000;
+            font-size: p.$tailleLien;
+        }
+    }
+}
+
+.close{
+        display: none;
+    }

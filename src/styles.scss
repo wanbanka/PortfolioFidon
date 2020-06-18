@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'parameters' as p;
+
+@font-face{
+    font-family: 'Oxanium';
+    src: url(fonts/oxanium/Oxanium-Regular.ttf),
+     url(fonts/oxanium/Oxanium-Regular.eot),
+     url(fonts/oxanium/Oxanium-Regular.otf),
+     url(fonts/oxanium/Oxanium-Regular.woff) format('woff'),
+     url(fonts/oxanium/Oxanium-Regular.woff2) format('woff2');
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: p.$bg-page;
+    font-family: 'Oxanium';
+}
+
+i.icon{
+    width: p.$tailleIcone;
+    height: p.$tailleIcone;
+    display: inline;
+    vertical-align: middle;
+}
+
+nav{
+    position: fixed;
+    background-color: #ffffff;
+    width: 100%;
+    z-index: p.$zindexMenu;
+}
+
+app-home{
+    position: relative;
+    z-index: p.$zindex;
+}
