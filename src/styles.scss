@@ -2,37 +2,111 @@
 
 @font-face{
     font-family: 'Oxanium';
-    src: url(fonts/oxanium/Oxanium-Regular.ttf),
-     url(fonts/oxanium/Oxanium-Regular.eot),
-     url(fonts/oxanium/Oxanium-Regular.otf),
-     url(fonts/oxanium/Oxanium-Regular.woff) format('woff'),
-     url(fonts/oxanium/Oxanium-Regular.woff2) format('woff2');
+    src: url(./fonts/oxanium/Oxanium-Regular.ttf),
+     url(./fonts/oxanium/Oxanium-Regular.eot),
+     url(./fonts/oxanium/Oxanium-Regular.otf),
+     url(./fonts/oxanium/Oxanium-Regular.woff) format('woff'),
+     url(./fonts/oxanium/Oxanium-Regular.woff2) format('woff2');
 }
 
 *{
     box-sizing: border-box;
 }
 
+:root{
+    --bg-page: #ffffff;
+}
+
+::selection{
+    background-color: #000000;
+    color: #ffffff;
+}
+
 body{
-    background-color: p.$bg-page;
+    background-color: var(--bg-page);
     font-family: 'Oxanium';
+    display: grid;
+    grid-template-areas: 
+        "nav"
+        "content";
+    grid-template-rows: 10% auto;
+}
+
+nav{
+    position: fixed;
+    display: grid;
+    align-items: center;
+    grid-area: nav;
+    background-color: #ffffff;
+    width: 100%;
+    height: 12.5vh;
+    z-index: p.$zindexMenu;
+    background-color: var(--bg-page);
+    top: 0;
+    left: 0;
+    
+    button{
+        width: 10%;
+        background-color: transparent;
+        border-color: transparent;
+        outline: inherit;
+        position: fixed;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-areas: "icone . texte";
+        grid-template-columns: 40% 10% 50%;
+        left: 1%;
+        z-index: p.$zindexMenu;
+        
+        span {
+            -webkit-writing-mode: vertical-rl;
+            -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            grid-area: texte;
+            font-family: 'Oxanium';
+            font-size: 1.3rem;
+        }
+        
+        .icon-menu{
+            content: url(pictures/menu.png);
+            width: 6rem;
+            height: 6rem;
+            grid-area: icone;
+        }
+        
+        .icon-close{
+            content: url(pictures/close-menu.png);
+            width: 6rem;
+            height: 6rem;
+            grid-area: icone;
+        }
+    }
+    
+    .lost{
+        display: none;
+    }
+    
+    .nomPage{
+        position: fixed;
+        left: 35%;
+        top: 5%;
+        font-size: 4rem;
+        text-align: center;
+    }
 }
 
 i.icon{
     width: p.$tailleIcone;
     height: p.$tailleIcone;
-    display: inline;
     vertical-align: middle;
 }
 
-nav{
-    position: fixed;
-    background-color: #ffffff;
-    width: 100%;
-    z-index: p.$zindexMenu;
-}
-
 app-home{
-    position: relative;
-    z-index: p.$zindex;
-}
+        display: grid;
+    grid-template-rows: 50% 30% 20%;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    }

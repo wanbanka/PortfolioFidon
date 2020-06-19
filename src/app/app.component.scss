@@ -1,0 +1,7 @@
+@use '../parameters' as p;
+
+router-outlet{
+    position: relative;
+    z-index: p.$zindex;
+    grid-area: content;
+}

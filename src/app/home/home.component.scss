@@ -1,1 +1,29 @@
-@use '../../parameters' with($bg-page: #8ca0b9);
+@import '../../parameters';
+
+header{
+    text-align: center;
+        
+    h1{
+        font-size: 6rem;
+    }
+    h2{
+        font-size: 2rem;
+    }
+}
+
+.btn-oeuvre{
+    
+    margin: 0 auto;
+    
+    background-color: #f28e57;
+    
+    padding-left: 3.125rem;
+    
+    padding-right: 3.125rem;
+    width: 80%;
+    
+    &:hover, &:active, &:focus{
+        @include effectSurvol(#000000, #f28e57);
+    }
+    
+}

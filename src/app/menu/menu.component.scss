@@ -3,10 +3,14 @@
 ul {
     
     display: grid;
+    grid-template-rows: repeat(4, 26%);
     justify-content: center;
     align-items: center;
     height: 100vh;
-    border: 1px solid red;
+    width: 100vw;
+    position: relative;
+    right: 0.1%;
+    bottom: 1rem;
     background-color: #ffffff;
     
     li{
@@ -16,9 +20,6 @@ ul {
         @each $categorie, $lien in p.$icones{
             .icon-#{$categorie}::before{
                 content: url(#{$lien});
-                display: inline-block;
-                position: relative;
-                bottom: 1rem;
             }
         }
         

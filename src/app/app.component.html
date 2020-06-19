@@ -1,6 +1,9 @@
 <nav class="container">
-    <button (click)="toggleMenu()"><i class="icon icon-menu"></i>MENU</button>
-    <app-menu [open]="determine"></app-menu>
+    <button (click)="toggleMenu()"><i [ngClass]="{'icon': true, 'icon-menu': !determine, 'icon-close': determine}"></i><span [ngClass]="{'lost': determine}"><b>MENU</b></span></button>
+    
+    <span class="nomPage">{{nomPage | uppercase}}</span>
+    
+    <app-menu [open]="determine" (page)="fermeMenu($event)"></app-menu>
 </nav>
 
 <router-outlet></router-outlet>
