@@ -8,6 +8,14 @@ $zindexMenu: 900;
 
 $tailleLien: 3rem;
 
+$hauteurNav: 12.5vh;
+
+%position_section{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
 @mixin effectSurvol($couleur1, $couleur2){
     background-color: $couleur1;
     color: $couleur2;

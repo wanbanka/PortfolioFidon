@@ -1,0 +1,81 @@
+@use '../../parameters' as p;
+
+.biography{
+    @extend %position_section;
+    grid-row-gap: 25%;
+    margin-top: p.$hauteurNav + 6;
+    
+    section{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-areas: ". image . texte .";
+        grid-template-columns: 5% 45% 5% 40% 5%;
+        
+        img{
+            grid-area: image;
+            grid-column: 2;
+        }
+        
+        div{
+            grid-area: texte;
+            text-align: center;
+            grid-column: 4;
+        }
+    }
+    
+    .part-odd{
+        img{
+            grid-column: 4;
+        }
+        
+        div{
+            grid-column: 2;
+        }
+        
+        }
+}
+
+.exhibitions{
+    @extend %position_section;
+    margin-top: p.$hauteurNav + 10;
+    
+    .title {
+        font-size: p.$tailleLien;
+    }
+    
+    .select_year{
+        
+        button{
+            outline: none;
+            background-color: transparent;
+            border: none;
+        }
+        
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-areas: ". iconegauche annee iconedroite .";
+        grid-template-rows: auto 10% 20% 10% auto;
+        
+        .annee{
+            grid-area: annee;
+        }
+        
+        .icon-left{
+        content: url(../../pictures/fleche_choix.png);
+         width: 6rem;
+            height: 6rem;
+        transform: rotateZ(180deg);
+            grid-area: iconegauche;
+    }
+    
+    .icon-right{
+        content: url(../../pictures/fleche_choix.png);
+         width: 6rem;
+            height: 6rem;
+        grid-area: iconedroite;
+    }
+    }
+    
+}

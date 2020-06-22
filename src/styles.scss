@@ -39,7 +39,7 @@ nav{
     grid-area: nav;
     background-color: #ffffff;
     width: 100%;
-    height: 12.5vh;
+    height: p.$hauteurNav;
     z-index: p.$zindexMenu;
     background-color: var(--bg-page);
     top: 0;
@@ -91,7 +91,7 @@ nav{
     .nomPage{
         position: fixed;
         left: 35%;
-        top: 5%;
+        top: 2%;
         font-size: 4rem;
         text-align: center;
     }

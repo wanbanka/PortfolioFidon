@@ -15,6 +15,9 @@ import { ContactComponent } from './contact/contact.component';
 import { SingleOeuvreComponent } from './single-oeuvre/single-oeuvre.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
+import {PortfolioService} from './Services/portfolio.service';
+import { HTMLPipe } from './Pipes/html.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,8 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
     WorksComponent,
     ContactComponent,
     SingleOeuvreComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    HTMLPipe
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
       FormsModule,
       HttpClientModule
   ],
-  providers: [],
+  providers: [
+      PortfolioService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
