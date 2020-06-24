@@ -57,6 +57,7 @@ nav{
         grid-template-areas: "icone . texte";
         grid-template-columns: 40% 10% 50%;
         left: 1%;
+        top: -1%;
         z-index: p.$zindexMenu;
         
         span {

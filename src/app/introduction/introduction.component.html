@@ -11,9 +11,14 @@
     <div class="title">EXPOSITIONS</div>
     
     <div class="select_year">
-       <button class="prev"><i class="icon icon-left"></i></button>
-        <div class="annee">2020</div>
-        <button class="next"><i class="icon icon-right"></i></button>
+       <button class="prev" (click)="prevIndex()"><i class="icon icon-left"></i></button>
+        <div class="annee">{{annees[index]}}</div>
+        <button class="next" (click)="nextIndex()"><i class="icon icon-right"></i></button>
     </div>
+    
+    <ng-timeline-vertical>
+        <ng-timeline-item title="Bonjour" content="Que du blablbla" date="26 juillet"></ng-timeline-item>
+        <ng-timeline-item title="Bonjour" content="Que du blablbla" date="26 juillet"></ng-timeline-item>
+    </ng-timeline-vertical>
     
 </section>

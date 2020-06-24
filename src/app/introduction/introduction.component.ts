@@ -16,6 +16,12 @@ export class IntroductionComponent implements OnInit, OnDestroy {
     sectionSubscription : Subscription;
     
     sections : any[] = [];
+    
+    annee : Date = new Date();
+    
+    annees : number[] = [];
+    
+    index : number = 0;
 
   ngOnInit() {
       
@@ -29,7 +35,28 @@ export class IntroductionComponent implements OnInit, OnDestroy {
       
           this.portfolio.emitSections();
       
+      this.remplirAnnees();
+      
+      this.index = this.annees.length - 1;
+      
   }
+    
+    remplirAnnees(){
+        let index = 11;
+        
+        while(index > -1){
+            this.annees = [...this.annees, this.annee.getFullYear() - index];
+            index -= 1;
+        }
+    }
+    
+    prevIndex(){
+        (this.index == 0) ? this.index = 0 : this.index -= 1;
+    }
+    
+    nextIndex(){
+        (this.index == this.annees.length - 1) ? this.index = this.annees.length - 1 : this.index += 1;
+    }
     
     ngOnDestroy(){
         this.sectionSubscription.unsubscribe();
