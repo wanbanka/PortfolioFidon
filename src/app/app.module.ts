@@ -18,6 +18,12 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import {PortfolioService} from './Services/portfolio.service';
 import { HTMLPipe } from './Pipes/html.pipe';
 
+import {registerLocaleData} from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr, 'fr');
+
+
 @NgModule({
   declarations: [
     AppComponent,

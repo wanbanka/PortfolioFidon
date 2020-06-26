@@ -1,5 +1,5 @@
 <section class="biography">
-    <section *ngFor="let section of sections, let i = index" [ngClass]="{'part-even': i % 2 == 0, 'part-odd': i % 2 != 0}">
+    <section *ngFor="let section of sections">
         <img src="{{section.photo_section}}" alt="Illustration" title="Illustration" width="350" height="223">
         <div [innerHTML]="section.texte_section | hTML"></div>
     </section>
@@ -15,10 +15,12 @@
         <div class="annee">{{annees[index]}}</div>
         <button class="next" (click)="nextIndex()"><i class="icon icon-right"></i></button>
     </div>
-    
-    <ng-timeline-vertical>
-        <ng-timeline-item title="Bonjour" content="Que du blablbla" date="26 juillet"></ng-timeline-item>
-        <ng-timeline-item title="Bonjour" content="Que du blablbla" date="26 juillet"></ng-timeline-item>
+ 
+   <div class="timeline-exhibitions">
+       <ng-timeline-vertical *ngIf="displayExhibitions.length > 0">
+        <ng-timeline-item *ngFor="let exhibition of displayExhibitions" title="{{exhibition.date_debut_exposition | date:'d MMMM y'}} - {{exhibition.date_fin_exposition | date:'d MMMM y'}}" content="{{exhibition.description_exposition}}"></ng-timeline-item>
     </ng-timeline-vertical>
+    <p *ngIf="displayExhibitions.length === 0">Pas d'expositions <span *ngIf="index === annees.length - 1">pour le moment</span></p>
+   </div>
     
 </section>
