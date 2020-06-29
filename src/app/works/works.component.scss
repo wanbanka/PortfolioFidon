@@ -1,0 +1,13 @@
+@use '../../parameters' as p;
+
+.choix_oeuvres{
+    @extend %position_section;
+    margin-top: p.$hauteurNav + 6;
+    
+    select{
+        font-size: p.$tailleLien;
+        font-family: "Oxanium";
+        padding: 1rem 11.25rem 1rem 11.25rem;
+        border: none;
+    }
+}

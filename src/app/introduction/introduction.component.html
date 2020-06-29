@@ -18,7 +18,7 @@
  
    <div class="timeline-exhibitions">
        <ng-timeline-vertical *ngIf="displayExhibitions.length > 0">
-        <ng-timeline-item *ngFor="let exhibition of displayExhibitions" title="{{exhibition.date_debut_exposition | date:'d MMMM y'}} - {{exhibition.date_fin_exposition | date:'d MMMM y'}}" content="{{exhibition.description_exposition}}"></ng-timeline-item>
+        <ng-timeline-item *ngFor="let exhibition of displayExhibitions" title="{{exhibition.date_debut_exposition | date:'d MMMM y'}} {{exhibition.date_fin_exposition ? '-' : ''}} {{exhibition.date_fin_exposition | date:'d MMMM y'}}" content="{{exhibition.description_exposition}}"></ng-timeline-item>
     </ng-timeline-vertical>
     <p *ngIf="displayExhibitions.length === 0">Pas d'expositions <span *ngIf="index === annees.length - 1">pour le moment</span></p>
    </div>

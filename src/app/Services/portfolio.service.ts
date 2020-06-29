@@ -15,9 +15,13 @@ export class PortfolioService {
 
 private exhibitions : any[] = [];
 
+private works : any[] = [];
+
 sectionsSubject : Subject<any[]> = new Subject<any[]>();
 
 exhibitionsSubject : Subject<any[]> = new Subject<any[]>();
+
+worksSubject : Subject<any[]> = new Subject<any[]>();
 
 emitSections(){
     this.sectionsSubject.next(this.sections.slice());
@@ -25,6 +29,10 @@ emitSections(){
 
 emitExhibitions(){
     this.exhibitionsSubject.next(this.exhibitions.slice());
+}
+
+emitWorks(){
+    this.worksSubject.next(this.works.slice());
 }
 
 private putSections(donnees : any){
@@ -37,12 +45,21 @@ private putExhibitions(donnees : any){
     this.emitExhibitions();
 }
 
+private putWorks(donnees : any){
+    this.works = donnees;
+    this.emitWorks();
+}
+
  getSections(){
         this.getDonnees('sections');
     }
 
 getExhibitions(){
     this.getDonnees('expositions');
+}
+
+getWorks(){
+    this.getDonnees('oeuvres');
 }
 
 
@@ -59,6 +76,10 @@ private getDonnees(option : string){
                     
                 case 'expositions':
                     this.putExhibitions(donnees);
+                    break;
+                    
+                case 'oeuvres':
+                    this.putWorks(donnees);
                     break;
             }
                        },

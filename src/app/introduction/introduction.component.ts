@@ -84,7 +84,16 @@ export class IntroductionComponent implements OnInit, OnDestroy {
         
         this.displayExhibitions = this.exhibitions.filter((exhibition) => exhibition.date_debut_exposition.includes(annee));
         
+        let egalDateIndex = this.displayExhibitions.findIndex((exhibition) => {
+           return exhibition.date_debut_exposition === exhibition.date_fin_exposition;
+        });
+        
+        if(egalDateIndex != -1){
+            this.displayExhibitions[egalDateIndex].date_fin_exposition = '';
+        }
+        
         console.table(this.displayExhibitions);
+        console.table(egalDateIndex);
         
     }
     

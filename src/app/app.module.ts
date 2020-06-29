@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
@@ -44,7 +44,8 @@ registerLocaleData(localeFr, 'fr');
       NgTimelineVerticalModule
   ],
   providers: [
-      PortfolioService
+      PortfolioService,
+      {provide: LOCALE_ID, useValue: 'fr'}
   ],
   bootstrap: [AppComponent]
 })

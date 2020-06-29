@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class WorksComponent implements OnInit {
 
   constructor() { }
+    
+    anneeOeuvre: number = 2018;
 
   ngOnInit() {
   }
