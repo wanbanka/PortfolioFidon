@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import {PortfolioService} from '../Services/portfolio.service';
 
+import {ColorsServiceService} from '../Services/colors-service.service';
+
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -11,7 +13,11 @@ import {Subscription} from 'rxjs';
 })
 export class IntroductionComponent implements OnInit, OnDestroy {
 
-  constructor(private portfolio: PortfolioService) { }
+  constructor(private portfolio: PortfolioService, private colors: ColorsServiceService) {
+  
+      document.body.style.setProperty('--bg-page', this.colors.rechercheCouleur('presentation').couleur);
+  
+  }
     
     sectionSubscription : Subscription;
     
@@ -63,20 +69,12 @@ export class IntroductionComponent implements OnInit, OnDestroy {
             
             let anneeFin = new Date(this.exhibitions[0].date_fin_exposition).getFullYear();
             
-            this.annees = this.range(anneeDebut, anneeFin);
+            this.annees = this.portfolio.range(anneeDebut, anneeFin);
             
             this.index = this.annees.length - 1;
             
             this.filtreExhibitions(this.annees[this.index]);
             
-        }
-    }
-    
-    range(start : number, end : number){
-        if(start === end){
-            return [start];
-        } else {
-            return [start, ...this.range(start + 1, end)];
         }
     }
     

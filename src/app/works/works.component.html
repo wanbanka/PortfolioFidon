@@ -1,7 +1,20 @@
 <section class="choix_oeuvres">
     
-<select name="annee_oeuvre" id="annee_oeuvre" [(ngModel)]="anneeOeuvre">
-    <option value="2018">2018</option>
+<select name="annee_oeuvre" id="annee_oeuvre" [(ngModel)]="anneeOeuvre" (change)="filterWorks()">
+    <option *ngFor="let annee of annees" value="{{annee}}">{{annee}}</option>
 </select>
+    
+</section>
+
+
+<section class="liste_oeuvres">
+    
+    <p *ngIf=" displayOeuvres.length === 0">Pas d'oeuvres<span *ngIf="anneeOeuvre === annees[annees.length - 1]">pour le moment</span></p>
+    
+    <div class="oeuvre" *ngFor="let oeuvre of displayOeuvres">
+        <a [routerLink]="[oeuvre.id_oeuvre]">
+            <img src="{{oeuvre.photo_oeuvre}}" width="100%" height="auto" alt="{{oeuvre.nom_oeuvre}}" title="{{oeuvre.nom_oeuvre}}">
+        </a>
+    </div>
     
 </section>

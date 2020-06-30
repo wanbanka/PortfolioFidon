@@ -11,3 +11,31 @@
         border: none;
     }
 }
+
+.liste_oeuvres{
+    
+    @extend %position_section;
+    margin-top: p.$hauteurNav - 4;
+    
+    p{
+            font-size: p.$tailleLien;
+        }
+        
+    
+    .oeuvre{
+        width: 45rem;
+        
+        a{
+            display: block;
+            padding: 1rem 1rem 0.5rem 1rem;
+            transition-duration: 0.5s;
+            
+            &:hover{
+                border: 0.5rem solid #ffffff;
+                transition-duration: 0.5s;
+                transition-property: border;
+            }
+        }
+    }
+    
+}

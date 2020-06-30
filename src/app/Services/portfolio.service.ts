@@ -62,6 +62,21 @@ getWorks(){
     this.getDonnees('oeuvres');
 }
 
+getWorkById(id: number){
+    
+    return this.works.find((oeuvre) => {
+       return oeuvre.id_oeuvre === id; 
+    });
+}
+
+range(start : number, end : number){
+        if(start === end){
+            return [start];
+        } else {
+            return [start, ...this.range(start + 1, end)];
+        }
+    }
+
 
 private getDonnees(option : string){
     

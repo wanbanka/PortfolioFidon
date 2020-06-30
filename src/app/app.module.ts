@@ -16,6 +16,7 @@ import { SingleOeuvreComponent } from './single-oeuvre/single-oeuvre.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 import {PortfolioService} from './Services/portfolio.service';
+import {ColorsServiceService} from './Services/colors-service.service'
 import { HTMLPipe } from './Pipes/html.pipe';
 
 import {registerLocaleData} from '@angular/common';
@@ -45,6 +46,7 @@ registerLocaleData(localeFr, 'fr');
   ],
   providers: [
       PortfolioService,
+      ColorsServiceService,
       {provide: LOCALE_ID, useValue: 'fr'}
   ],
   bootstrap: [AppComponent]
