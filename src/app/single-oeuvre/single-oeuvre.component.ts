@@ -17,7 +17,7 @@ export class SingleOeuvreComponent implements OnInit, OnDestroy {
     
     id: number;
     
-    oeuvre;
+    oeuvre: JSON;
     
     oeuvreSubscription: Subscription;
 
@@ -31,18 +31,18 @@ export class SingleOeuvreComponent implements OnInit, OnDestroy {
       
       this.id = this.route.snapshot.params['id'];
       
-      this.portfolio.getWorks();
+      this.portfolio.getWorkById(+this.id);
       
       this.oeuvreSubscription = this.portfolio.worksSubject.subscribe((oeuvre) => {
-          this.oeuvre = oeuvre;
+          
+          if(oeuvre.length > 0){
+              
+          this.oeuvre = oeuvre[0];
           console.table(this.oeuvre);
+          }
       });
       
       this.portfolio.emitWorks();
-      
-      this.oeuvre = this.portfolio.getWorkById(+this.id);
-      
-      console.log(this.oeuvre);
   }
     
     ngOnDestroy(){

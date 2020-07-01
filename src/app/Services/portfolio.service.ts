@@ -62,13 +62,6 @@ getWorks(){
     this.getDonnees('oeuvres');
 }
 
-getWorkById(id: number){
-    
-    return this.works.find((oeuvre) => {
-       return oeuvre.id_oeuvre === id; 
-    });
-}
-
 range(start : number, end : number){
         if(start === end){
             return [start];
@@ -97,6 +90,21 @@ private getDonnees(option : string){
                     this.putWorks(donnees);
                     break;
             }
+                       },
+                    (error) => {
+            console.log(error);
+        }
+                        
+                        );
+    
+}
+
+getWorkById(id: number){
+    
+    let params = new HttpParams().set('api_key', 'e4530cf5701e631bbd5837b70fba9f9294f44f122c4a961b1577c9ed7176e633d351958ad03993b3a2a38dfae9f4c18f0b099ed8720058ea9ea8437f51d70945').set('oeuvre_id', ''+ id +'');
+    
+    this.http.get<any[]>('https://theosenilh.fr/api_fidon/recherche_donnees.php', {params}).subscribe((donnees) => {
+            this.putWorks(donnees);
                        },
                     (error) => {
             console.log(error);

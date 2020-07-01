@@ -13,6 +13,7 @@ export class AppComponent {
     
     constructor(private location: Location, private colors: ColorsServiceService){
         this.nomPage = this.location.path().replace('/', '');
+        console.log(this.nomPage);
     }
   
     determine: boolean = false;

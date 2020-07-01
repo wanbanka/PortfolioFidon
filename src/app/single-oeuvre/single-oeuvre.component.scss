@@ -1,0 +1,20 @@
+@use '../../parameters' as p;
+
+.affiche_oeuvre {
+    @extend %position_section;
+    margin-top: p.$hauteurNav + 4;
+    
+    width: 100%;
+    
+    height: 76vh;
+    
+    p{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    
+    span {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
