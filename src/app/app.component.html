@@ -1,9 +1,11 @@
 <nav class="container">
-    <button (click)="toggleMenu()"><i [ngClass]="{'icon': true, 'icon-menu': !determine, 'icon-close': determine}"></i><span [ngClass]="{'lost': determine}"><b>MENU</b></span></button>
+    <button [ngClass]="{'lost': comeback}" (click)="toggleMenu()"><i [ngClass]="{'icon': true, 'icon-menu': !determine, 'icon-close': determine}"></i><span [ngClass]="{'lost': determine}"><b>MENU</b></span></button>
+    
+    <button [ngClass]="{'lost': !comeback}" (click)="backWorks()"><i class="icon icon-back"></i></button>
     
     <span class="nomPage">{{nomPage | uppercase}}</span>
     
-    <app-menu [open]="determine" (page)="fermeMenu($event)"></app-menu>
+    <app-menu [open]="determine"></app-menu>
 </nav>
 
-<router-outlet></router-outlet>
+<router-outlet (activate)="afficheBack($event)" (deactivate)="notePage($event)"></router-outlet>

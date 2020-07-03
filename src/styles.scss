@@ -83,6 +83,14 @@ nav{
             height: 6rem;
             grid-area: icone;
         }
+        
+        .icon-back{
+            content: url(pictures/fleche_back.png);
+            transform: rotateZ(-180deg);
+            width: 6rem;
+            height: 6rem;
+            grid-area: icone;
+        }
     }
     
     .lost{

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgTimelineVerticalModule} from 'ng-timeline-vertical';
 
@@ -16,7 +16,7 @@ import { SingleOeuvreComponent } from './single-oeuvre/single-oeuvre.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 import {PortfolioService} from './Services/portfolio.service';
-import {ColorsServiceService} from './Services/colors-service.service'
+import {ColorsServiceService} from './Services/colors-service.service';
 import { HTMLPipe } from './Pipes/html.pipe';
 
 import {registerLocaleData} from '@angular/common';
@@ -41,6 +41,7 @@ registerLocaleData(localeFr, 'fr');
     BrowserModule,
     AppRoutingModule,
       FormsModule,
+      ReactiveFormsModule,
       HttpClientModule,
       NgTimelineVerticalModule
   ],

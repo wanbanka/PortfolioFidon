@@ -1,0 +1,81 @@
+@use '../../parameters' as p;
+
+form {
+    
+    @extend %position_section;
+    margin-top: p.$hauteurNav + 6;
+    grid-template-areas: "nom textarea",
+        "prenom textarea",
+        "mail textarea",
+        "submit";
+    grid-template-rows: repeat(3, 15%);
+    grid-template-columns: 30%;
+    grid-column-gap: 3%;
+    grid-row-gap: 10%;
+    
+    label {
+        font-size: 1.5rem;
+    }
+    
+    .group-name{
+        grid-area: nom;
+        grid-row: 1;
+        grid-column: 1 / 2;
+    }
+    
+    .group-name2{
+        grid-area: prenom;
+        grid-row: 2;
+        grid-column: 1 / 2;
+    }
+    
+    .group-mail{
+        grid-area: mail;
+        grid-row: 3;
+        grid-column: 1 / 2;
+    }
+    
+    input{
+        &[type="text"], &[type="email"]{
+            border: 0.1875rem solid #000000;
+            width: 100%;
+            padding: 1rem;
+            font-family: "Oxanium";
+            font-size: 1.2rem;
+        }
+        
+        &[type="submit"]{
+            grid-area: submit;
+            grid-column: 1 / 4;
+            border-color: #000000;
+            background-color: #ffffff;
+            font-family: "Oxanium";
+            font-size: p.$tailleLien;
+            
+            &:hover, &:active, &:focus{
+                @include p.effectSurvol(#000000, #ffffff);
+                cursor: pointer;
+            }
+        }
+    }
+    
+    .group-message{
+        
+        grid-area: textarea;
+        grid-row: 1 / 4;
+        
+        textarea{
+        border: 0.1875rem solid #000000;
+            padding: 1rem;
+            font-family: "Oxanium";
+            font-size: 1.2rem;
+            resize: none;
+    }
+    }
+    
+}
+
+.networks {
+    @extend %position_section;
+    margin-top: p.$hauteurNav + 6;
+}
