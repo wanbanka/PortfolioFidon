@@ -1,9 +1,13 @@
 @use '../../parameters' as p;
 
-form {
+.page-contact{
+    height: 75vh;
+    
+ 
+    form {
     
     @extend %position_section;
-    margin-top: p.$hauteurNav + 6;
+    margin-top: p.$hauteurNav + 4;
     grid-template-areas: "nom textarea",
         "prenom textarea",
         "mail textarea",
@@ -11,7 +15,9 @@ form {
     grid-template-rows: repeat(3, 15%);
     grid-template-columns: 30%;
     grid-column-gap: 3%;
-    grid-row-gap: 10%;
+    grid-row-gap: 17%;
+        
+        height: 50vh;
     
     label {
         font-size: 1.5rem;
@@ -34,6 +40,10 @@ form {
         grid-row: 3;
         grid-column: 1 / 2;
     }
+        
+        span{
+            color: #ff0000;
+        }
     
     input{
         &[type="text"], &[type="email"]{
@@ -42,15 +52,36 @@ form {
             padding: 1rem;
             font-family: "Oxanium";
             font-size: 1.2rem;
+            transition-duration: 0.5s;
+            transition-property: border;
+            
+        &.valid{
+            border-color: #6e9044;
         }
         
-        &[type="submit"]{
+        &.invalid{
+            border-color: #ff0000;
+        }
+            
+            &:focus{
+                transition-duration: 0.5s;
+                transition-property: border;
+                border-width: 0.0625rem; 
+                border-style: solid;
+                outline: none;
+            }
+        }
+        
+        &[type="submit"].btn-send{
             grid-area: submit;
             grid-column: 1 / 4;
             border-color: #000000;
             background-color: #ffffff;
             font-family: "Oxanium";
-            font-size: p.$tailleLien;
+            font-size: p.$tailleLien - 0.5;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-top: -(p.$hauteurNav) + 3;
             
             &:hover, &:active, &:focus{
                 @include p.effectSurvol(#000000, #ffffff);
@@ -70,6 +101,24 @@ form {
             font-family: "Oxanium";
             font-size: 1.2rem;
             resize: none;
+            transition-duration: 0.5s;
+            transition-property: border;
+            
+        &.valid{
+            border-color: #6e9044;
+        }
+        
+        &.invalid{
+            border-color: #ff0000;
+        }
+            
+            &:focus{
+                transition-duration: 0.5s;
+                transition-property: border;
+                border-width: 0.0625rem; 
+                border-style: solid;
+                outline: none;
+            }
     }
     }
     
@@ -77,5 +126,23 @@ form {
 
 .networks {
     @extend %position_section;
-    margin-top: p.$hauteurNav + 6;
+    margin-top: p.$hauteurNav + 4;
+    width: 100%;
+    height: 10vh;
+    
+    grid-template-areas: "lien1 lien2";
+    grid-template-columns: 20% 20%;
+    grid-column-gap: 10%;
+    
+    .facebook{
+        grid-area: lien1;
+        text-align: end;
+    }
+    
+    .instagram{
+        grid-area: lien2;
+    }
+}
+    
+    
 }

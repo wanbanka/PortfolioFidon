@@ -1,33 +1,45 @@
-<form>
+<section class="page-contact">
+    
+<form [formGroup]="formGroup" (ngSubmit)="sendMail()">
     <div class="group-name">
         <label for="nom">Nom: </label><br>
-        <input type="text" id="nom" name="nom">
+        <input type="text" id="nom" name="nom" [ngClass]="{'valid': submitted && nom.valid,'invalid': submitted && nom.errors}" formControlName="nom">
+        <span *ngIf="submitted && nom.errors && nom.errors.required">Nom requis</span>
     </div>
     
     <div class="group-name2">
         <label for="prenom">Prénom: </label><br>
-        <input type="text" id="prenom" name="prenom">
+        <input type="text" id="prenom" name="prenom" [ngClass]="{'valid': submitted && prenom.valid,'invalid': submitted && prenom.errors}" formControlName="prenom">
+        <span *ngIf="submitted && prenom.errors && prenom.errors.required">Prénom requis</span>
     </div>
     
     <div class="group-mail">
         <label for="mail">Adresse mail: </label><br>
-        <input type="email" id="mail" name="mail">
+        <input type="email" id="mail" name="mail" [ngClass]="{'valid': submitted && mail.valid,'invalid': submitted && mail.errors}" formControlName="mail">
+        <span *ngIf="submitted && mail.errors && mail.errors.required">Mail requis</span>
+        <span *ngIf="(mail.dirty || mail.touched) && submitted && mail.errors && mail.errors.email">Doit respecter le format mail</span>
     </div>
     
     <div class="group-message">
         <label for="message">Message: </label><br>
-        <textarea name="message" id="message" cols="30" rows="11"></textarea>
+        <textarea name="message" id="message" cols="30" rows="11" [ngClass]="{'valid': submitted && message.valid,'invalid': submitted && message.errors}" formControlName="message"></textarea><br>
+        <span *ngIf="submitted && message.errors && message.errors.required">Message requis</span>
     </div>
     
-    <input type="submit" value="ENVOYER" class="btn">
+    <input type="submit" value="ENVOYER" class="btn btn-send">
 </form>
 
-
 <section class="networks">
-    <a href="https://fr-fr.facebook.com/pages/category/Artist/J%C3%A9r%C3%B4me-Fidon-971384976268723/" target="_blank">
-        <img src="pictures/facebook.png" alt="Chaîne Facebook" title="Chaîne Facebook">
+   <div class="facebook">
+       <a href="https://fr-fr.facebook.com/pages/category/Artist/J%C3%A9r%C3%B4me-Fidon-971384976268723/" target="_blank">
+        <img src="assets/facebook.png" alt="Chaîne Facebook" title="Chaîne Facebook" width="40%">
     </a>
-    <a href="">
-        <img src="pictures/instagram.png" alt="Chaîne Instagram">
+   </div>
+   <div class="instagram">
+       <a href="https://www.instagram.com" target="_blank">
+        <img src="assets/instagram.png" alt="Chaîne Instagram" title="Chaîne Instagram" width="40%">
     </a>
+   </div>
+</section>
+    
 </section>
