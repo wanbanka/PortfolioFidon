@@ -1,5 +1,25 @@
 @use '../../parameters' as p;
 
+@keyframes shakeIcon{
+    0%, 100%{
+       transform: rotate(0);
+    }
+    
+    @for $i from 1 through 9{
+        
+        $pourcent: 10 * $i;
+        
+        #{$pourcent}%{
+            @if $pourcent % 4 == 0{
+                transform: rotate(20deg);
+            } @else {
+                transform: rotate(-20deg);
+            }
+        }
+        
+    }
+}
+
 ul {
     
     display: grid;
@@ -27,6 +47,14 @@ ul {
             text-decoration: none;
             color: #000000;
             font-size: p.$tailleLien;
+            
+            i{border: #ff0000 solid 1px;}
+            
+            &:hover, &:active, &:focus{
+                i{
+                    animation: shakeIcon 1s linear;
+                }
+            }
         }
     }
 }

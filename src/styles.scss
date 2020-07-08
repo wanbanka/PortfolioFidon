@@ -106,16 +106,70 @@ nav{
     }
 }
 
+.btn{
+    text-decoration: none;
+    text-align: center;
+    color: #000000;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    transition-duration: 0.5s;
+    padding-top: 1.3125rem;
+    padding-bottom: 1.3125rem;
+}
+
 i.icon{
     width: p.$tailleIcone;
     height: p.$tailleIcone;
     vertical-align: middle;
 }
 
+.icon-valide::before{
+    content: url(pictures/valide.png);
+}
+
+input{
+    &[type="text"], &[type="email"]{
+            @extend %champs_formulaire;
+            
+        &.valid{
+            border-color: #6e9044;
+        }
+        
+        &.invalid{
+            border-color: #ff0000;
+        }
+            
+            &:focus{
+                @extend %focus_formulaire;
+            }
+        }
+}
+
+textarea{
+    @extend %champs_formulaire;
+    resize: none;
+    
+    &.valid{
+            border-color: #6e9044;
+        }
+        
+        &.invalid{
+            border-color: #ff0000;
+        }
+            
+            &:focus{
+                @extend %focus_formulaire;
+            }
+}
+
 app-home{
         display: grid;
-    grid-template-rows: 50% 30% 20%;
     justify-content: center;
     align-items: center;
     height: 95vh;
+     grid-template-rows: 50% 30% 20%;
     }
+
+app-contact{
+    height: 75vh;
+}

@@ -16,19 +16,26 @@ $hauteurNav: 12.5vh;
     align-items: center;
 }
 
+%champs_formulaire{
+            border: 0.1875rem solid #000000;
+            width: 100%;
+            padding: 1rem;
+            font-family: "Oxanium";
+            font-size: 1.2rem;
+            transition-duration: 0.5s;
+            transition-property: border;
+}
+
+%focus_formulaire{
+    transition-duration: 0.5s;
+                transition-property: border;
+                border-width: 0.0625rem; 
+                border-style: solid;
+                outline: none;
+}
+
 @mixin effectSurvol($couleur1, $couleur2){
     background-color: $couleur1;
     color: $couleur2;
     transition-duration: 0.5s;
-}
-
-.btn{
-    text-decoration: none;
-    text-align: center;
-    color: #000000;
-    font-size: 1.25rem;
-    border-radius: 1rem;
-    transition-duration: 0.5s;
-    padding-top: 1.3125rem;
-    padding-bottom: 1.3125rem;
 }

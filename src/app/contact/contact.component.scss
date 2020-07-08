@@ -1,12 +1,19 @@
-@use '../../parameters' as p;
+@use '../../parameters' as p;    
 
-.page-contact{
-    height: 75vh;
+.envoi_mail{
     
- 
+    .lost{
+        opacity: 0;
+        display: none;
+    }
+    
+    height: 50vh;
+    
     form {
     
     @extend %position_section;
+    transition-duration: 0.5s;
+        transition-property: opacity;
     margin-top: p.$hauteurNav + 4;
     grid-template-areas: "nom textarea",
         "prenom textarea",
@@ -16,6 +23,7 @@
     grid-template-columns: 30%;
     grid-column-gap: 3%;
     grid-row-gap: 17%;
+        opacity: 1;
         
         height: 50vh;
     
@@ -46,31 +54,6 @@
         }
     
     input{
-        &[type="text"], &[type="email"]{
-            border: 0.1875rem solid #000000;
-            width: 100%;
-            padding: 1rem;
-            font-family: "Oxanium";
-            font-size: 1.2rem;
-            transition-duration: 0.5s;
-            transition-property: border;
-            
-        &.valid{
-            border-color: #6e9044;
-        }
-        
-        &.invalid{
-            border-color: #ff0000;
-        }
-            
-            &:focus{
-                transition-duration: 0.5s;
-                transition-property: border;
-                border-width: 0.0625rem; 
-                border-style: solid;
-                outline: none;
-            }
-        }
         
         &[type="submit"].btn-send{
             grid-area: submit;
@@ -94,34 +77,34 @@
         
         grid-area: textarea;
         grid-row: 1 / 4;
-        
-        textarea{
-        border: 0.1875rem solid #000000;
-            padding: 1rem;
-            font-family: "Oxanium";
-            font-size: 1.2rem;
-            resize: none;
-            transition-duration: 0.5s;
-            transition-property: border;
-            
-        &.valid{
-            border-color: #6e9044;
-        }
-        
-        &.invalid{
-            border-color: #ff0000;
-        }
-            
-            &:focus{
-                transition-duration: 0.5s;
-                transition-property: border;
-                border-width: 0.0625rem; 
-                border-style: solid;
-                outline: none;
-            }
-    }
     }
     
+}
+    .success_mail{
+        @extend %position_section;
+        margin-top: p.$hauteurNav + 4;
+        height: 50vh;
+        transition-duration: 0.5s;
+        transition-property: opacity;
+        
+        grid-template-areas: "icone",
+            "message";
+        grid-template-rows: 30% 70%;
+        opacity: 1;
+        
+        i{
+            position: relative;
+            left: 30%;
+            grid-area: icone;
+            grid-row: 1;
+        }
+        
+        .message_success{
+            color: #6e9044;
+            font-size: p.$tailleLien - 0.5;
+            grid-area: message;
+        }
+    }
 }
 
 .networks {
@@ -134,6 +117,19 @@
     grid-template-columns: 20% 20%;
     grid-column-gap: 10%;
     
+    a{
+        img{
+          transition-duration: 0.5s;  
+        }
+        
+        &:hover, &:active, &:focus{
+            img{
+                transform: scale(1.1);
+                transition-duration: 0.5s;
+            }
+        }
+    }
+    
     .facebook{
         grid-area: lien1;
         text-align: end;
@@ -142,7 +138,4 @@
     .instagram{
         grid-area: lien2;
     }
-}
-    
-    
 }

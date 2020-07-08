@@ -115,5 +115,26 @@ getWorkById(id: number){
                         );
     
 }
+
+envoiMail(donnees: any[]): Promise<any>{
+    
+    let nom = encodeURI(donnees['nom']);
+    let prenom = encodeURI(donnees['prenom']);
+    let message = encodeURI(donnees['message']);
+    
+    let params = new HttpParams().set('nom', nom).set('prenom', prenom).set('mail', donnees['mail']).set('message', message);
+    
+    return new Promise((resolve, reject) => {
+       
+       this.http.post('https://theosenilh.fr/api_fidon/envoi_mail.php', {params}, {responseType: 'text'}).subscribe(() => {
+           resolve();
+       },
+        (error) => {
+           reject(error);
+       });
+        
+    });
+    
+}
     
 }

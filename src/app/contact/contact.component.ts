@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import {ColorsServiceService} from '../Services/colors-service.service';
+
+import {PortfolioService} from '../Services/portfolio.service';
 
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -9,9 +11,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
 
-  constructor(private colors: ColorsServiceService, private formBuilder: FormBuilder) {
+  constructor(private colors: ColorsServiceService, private formBuilder: FormBuilder, private portfolio: PortfolioService) {
   
       document.body.style.setProperty('--bg-page', this.colors.rechercheCouleur('contact').couleur);
       
@@ -19,6 +21,8 @@ export class ContactComponent implements OnInit {
     
     formGroup: FormGroup;
     submitted: boolean = false;
+    
+    success: boolean = false;
 
   ngOnInit() {
       this.initForm();
@@ -56,6 +60,22 @@ export class ContactComponent implements OnInit {
             return;
         }
         
+        this.portfolio.envoiMail(this.formGroup.value).then(() => {
+           console.log('Envoyé'); 
+            this.success = true;
+            
+            setTimeout(() => {
+                this.success = false;
+            }, 2000);
+            
+        }).catch((error) => {
+            console.log(error);
+        });
+        
+    }
+    
+    ngOnDestroy(){
+        this.formGroup = null;
     }
 
 }

@@ -1,6 +1,5 @@
-<section class="page-contact">
-    
-<form [formGroup]="formGroup" (ngSubmit)="sendMail()">
+<section class="envoi_mail">
+    <form [formGroup]="formGroup" (ngSubmit)="sendMail()" [ngClass]="{'lost': success}">
     <div class="group-name">
         <label for="nom">Nom: </label><br>
         <input type="text" id="nom" name="nom" [ngClass]="{'valid': submitted && nom.valid,'invalid': submitted && nom.errors}" formControlName="nom">
@@ -17,7 +16,7 @@
         <label for="mail">Adresse mail: </label><br>
         <input type="email" id="mail" name="mail" [ngClass]="{'valid': submitted && mail.valid,'invalid': submitted && mail.errors}" formControlName="mail">
         <span *ngIf="submitted && mail.errors && mail.errors.required">Mail requis</span>
-        <span *ngIf="(mail.dirty || mail.touched) && submitted && mail.errors && mail.errors.email">Doit respecter le format mail</span>
+        <span *ngIf="submitted && mail.errors && mail.errors.email">Doit respecter le format mail</span>
     </div>
     
     <div class="group-message">
@@ -28,6 +27,11 @@
     
     <input type="submit" value="ENVOYER" class="btn btn-send">
 </form>
+<section [ngClass]="{'success_mail': true, 'lost': !success}">
+    <i class="icon icon-valide"></i>
+    <span class="message_success">Votre message a bien été envoyé !</span>
+</section>
+</section>
 
 <section class="networks">
    <div class="facebook">
@@ -40,6 +44,4 @@
         <img src="assets/instagram.png" alt="Chaîne Instagram" title="Chaîne Instagram" width="40%">
     </a>
    </div>
-</section>
-    
 </section>
