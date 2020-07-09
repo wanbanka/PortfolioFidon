@@ -11,7 +11,8 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 
 const routes: Routes = [
-    {path: '', component: HomeComponent},
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'home', component: HomeComponent},
     {path: 'presentation', component: IntroductionComponent},
     {path: 'oeuvres', component: WorksComponent},
     {path: 'oeuvres/:id', component: SingleOeuvreComponent},

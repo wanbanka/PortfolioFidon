@@ -1,23 +1,67 @@
 @use '../../parameters' as p;
 
-@keyframes shakeIcon{
-    0%, 100%{
-       transform: rotate(0);
+@keyframes slideWoop{
+    from{
+        width: 0;
+        height: 0.5rem;
+        opacity: 1;
     }
     
-    @for $i from 1 through 9{
-        
-        $pourcent: 10 * $i;
-        
-        #{$pourcent}%{
-            @if $pourcent % 4 == 0{
-                transform: rotate(20deg);
-            } @else {
-                transform: rotate(-20deg);
-            }
-        }
-        
+    20%{
+        width: 110%;
     }
+    
+    50%{
+        width: 50%;
+    }
+    
+    75%{
+        width: 105%;
+    }
+    
+    90%{
+        width: 75%;
+    }
+    
+   to{
+        width: 100%;
+        height: 0.5rem;
+       opacity: 1;
+    }
+}
+
+@keyframes slideWoopReverse{
+    
+    from{
+        
+        width: 100%;
+        height: 0.5rem;
+       opacity: 1;
+    }
+    
+    20%{
+        width: 75%;
+    }
+    
+    50%{
+        width: 105%;
+    }
+    
+    75%{
+        width: 50%;
+    }
+    
+    90%{
+        width: 110%;
+    }
+    
+   to{
+        
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    
 }
 
 ul {
@@ -48,11 +92,27 @@ ul {
             color: #000000;
             font-size: p.$tailleLien;
             
-            i{border: #ff0000 solid 1px;}
+            & + hr{
+                height: 0;
+                position: relative;
+                top: -10%;
+                background-color: #000000;
+                margin: 0;
+                width: 0;
+                opacity: 0;
+                animation: slideWoopReverse 0.5s;
+            }
+            
+            &.active{
+                
+                & + hr{
+                    @extend %active;
+                }
+            }
             
             &:hover, &:active, &:focus{
-                i{
-                    animation: shakeIcon 1s linear;
+                & + hr{
+                    animation: slideWoop 1s forwards;
                 }
             }
         }

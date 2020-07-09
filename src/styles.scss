@@ -166,6 +166,7 @@ app-home{
         display: grid;
     justify-content: center;
     align-items: center;
+    margin-top: p.$hauteurNav - 11;
     height: 95vh;
      grid-template-rows: 50% 30% 20%;
     }

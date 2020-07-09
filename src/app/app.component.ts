@@ -13,6 +13,7 @@ export class AppComponent{
     
     constructor(private location: Location, private colors: ColorsServiceService){
         this.nomPage = this.location.path().replace('/', '');
+        this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
         console.log(this.nomPage);
     }
   
@@ -34,6 +35,7 @@ afficheBack(event){
 notePage(event){
     this.determine = false;
     this.nomPage = this.location.path().replace('/', '');
+    this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
 }
 
 backWorks(){

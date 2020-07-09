@@ -34,6 +34,13 @@ $hauteurNav: 12.5vh;
                 outline: none;
 }
 
+%active{
+        width: 100%;
+        height: 0.5rem;
+        opacity: 1;
+    animation: none;
+}
+
 @mixin effectSurvol($couleur1, $couleur2){
     background-color: $couleur1;
     color: $couleur2;
