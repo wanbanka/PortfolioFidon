@@ -1,7 +1,13 @@
 <header>
     <h1>JERÔME FIDON</h1>
     <h2>ARTISTE-PEINTRE PARISIEN</h2>
+    
+<a routerLink="/oeuvres" class="btn btn-oeuvre">DECOUVRIR LES OEUVRES</a>
 </header>
 
 
-<a routerLink="/oeuvres" class="btn btn-oeuvre">DECOUVRIR LES OEUVRES</a>
+<ko-stage #stage [config]="configStage">
+    <ko-layer #layer>
+        <ko-image #image [config]="configImage"></ko-image>
+    </ko-layer>
+</ko-stage>

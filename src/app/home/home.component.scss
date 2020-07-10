@@ -2,6 +2,13 @@
 
 header{
     text-align: center;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: $hauteurNav;
+     grid-template-rows: 50% 30% 20%;
         
     h1{
         font-size: 6rem;
@@ -9,9 +16,8 @@ header{
     h2{
         font-size: 2rem;
     }
-}
-
-.btn-oeuvre{
+    
+    .btn-oeuvre{
     
     margin: 0 auto;
     
@@ -26,4 +32,12 @@ header{
         @include effectSurvol(#000000, #f28e57);
     }
     
+}
+}
+
+ko-stage{
+    position: absolute;
+    top: 0;
+    left: -1px;
+    z-index: 1;
 }
