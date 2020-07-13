@@ -73,7 +73,7 @@ ul {
     height: 100vh;
     width: 100vw;
     position: relative;
-    right: 0.1%;
+    right: 0%;
     bottom: 1rem;
     background-color: #ffffff;
     
@@ -122,3 +122,20 @@ ul {
 .close{
         display: none;
     }
+
+@include p.smartphone{
+
+    ul{
+        li{
+            .icon{
+                width: 10%;
+                height: 10%;
+                background-size: 10% 10%;
+            }
+            a{
+                font-size: p.$tailleLien - 2;
+            }
+        }
+    }
+    
+}
