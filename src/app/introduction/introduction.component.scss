@@ -1,8 +1,51 @@
 @use '../../parameters' as p;
 
+@mixin modif_tablet_smartphone{
+    .biography{
+        
+        display: grid;
+        grid-row-gap: 15%;
+        margin: 0 auto;
+        margin-top: p.$hauteurNav + 6;
+        
+        section{
+            display: grid;
+            grid-template-areas: "image"
+                "texte";
+            grid-template-rows: 50% 100%;
+            grid-row-gap: 5%;
+            grid-template-columns: 100%;
+            grid-column-gap: 0;
+            
+            img{
+                grid-area: image;
+                grid-column: 1;
+                filter: brightness(0.4);
+                position: relative;
+                z-index: 1;
+            }
+            
+            div{
+                grid-area: texte;
+                grid-column: 1;
+                grid-row: 1;
+                position: relative;
+                z-index: 2;
+                color: #ffffff;
+            }
+            
+            &:nth-child(even){
+                img, div{
+                    grid-column: 1;
+                }
+            }
+        }
+    }
+}
+
 .biography{
     @extend %position_section;
-    grid-row-gap: 25%;
+    grid-row-gap: 15%;
     margin-top: p.$hauteurNav + 6;
     
     section{
@@ -15,6 +58,7 @@
         img{
             grid-area: image;
             grid-column: 2;
+            width: 100%;
         }
         
         div{
@@ -39,7 +83,7 @@
 
 .exhibitions{
     @extend %position_section;
-    margin-top: p.$hauteurNav + 10;
+    margin-top: p.$hauteurNav + 14;
     
     .title {
         font-size: p.$tailleLien;
@@ -102,4 +146,71 @@
         }
     }
     
+}
+
+@include p.miniDesktop{
+    .biography{
+        width: 85%;
+        margin: 0 auto;
+        margin-top: p.$hauteurNav + 6;
+    }
+}
+
+@include p.tablet{
+    @include modif_tablet_smartphone;
+}
+
+@include p.smartphone{
+    @include modif_tablet_smartphone;
+    
+    .exhibitions{
+        .title{
+            font-size: p.$tailleLien - 0.8;
+        }
+        
+        .select_year{
+            
+            .prev{
+               .icon-left::before{
+                   background-image: url(../../pictures/fleche_choix.png);
+                background-repeat: no-repeat;
+    background-size: 4rem 4rem;
+    display: inline-block;
+    width: 4rem; 
+    height: 4rem;
+    content:"";
+                
+            } 
+            }
+            
+            .next{
+                
+                position: relative;
+                left: 50%;
+                
+                .icon-right::before{
+                   background-image: url(../../pictures/fleche_choix.png);
+                background-repeat: no-repeat;
+    background-size: 4rem 4rem;
+    display: inline-block;
+    width: 4rem; 
+    height: 4rem;
+    content:"";
+                
+            }
+            }
+            
+            grid-template-columns: auto 10% 10% 10% auto;
+            
+            .annee{
+                font-size: 1rem;
+                padding: 1rem;
+                padding-right: 3rem;
+        }
+        }
+        
+        .timeline-exhibitions{
+            width: 100%;
+        }
+    }
 }
