@@ -164,6 +164,7 @@
     @include modif_tablet_smartphone;
     
     .exhibitions{
+        
         .title{
             font-size: p.$tailleLien - 0.8;
         }
@@ -185,9 +186,6 @@
             
             .next{
                 
-                position: relative;
-                left: 50%;
-                
                 .icon-right::before{
                    background-image: url(../../pictures/fleche_choix.png);
                 background-repeat: no-repeat;
@@ -200,12 +198,11 @@
             }
             }
             
-            grid-template-columns: auto 10% 10% 10% auto;
+            grid-template-columns: 10% 30% 30% 30% 10%;
             
             .annee{
                 font-size: 1rem;
                 padding: 1rem;
-                padding-right: 3rem;
         }
         }
         
