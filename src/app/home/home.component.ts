@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild, AfterViewInit, EventEmitter } from '@angu
 
 import {ColorsServiceService} from '../Services/colors-service.service';
 
-import {of, Observable} from 'rxjs';
+import {of, Observable, BehaviorSubject} from 'rxjs';
 
-import {KonvaComponent, Tween} from 'ng2-konva';
+import {KonvaComponent} from 'ng2-konva';
 
 @Component({
   selector: 'app-home',
@@ -28,46 +28,36 @@ export class HomeComponent implements OnInit, AfterViewInit {
         height: window.innerHeight
     });
 
-configImage: EventEmitter<any> = new EventEmitter();
+configRect = new BehaviorSubject({
+   x: 220,
+    y: 150,
+    width: 0,
+    height: 0,
+    fillPatternImage: null
+});
 
- imagine = new Image();
-
-showImage(src: string){
-      
-      this.imagine.src = src;
-      
-      this.imagine.onload = () => {
-          this.configImage.emit({
-              x: 50,
-              y: 50,
-              image: this.imagine,
-              width: 106,
-              height: 118
-          });
-          
-          const tween = new Konva.Tween({
-       node: this.imagine,
-        duration: 1,
-        x: 140,
-        y: 90,
-        rotationDeg: 45,
-        opacity: 1,
-        scaleX: 1.5
-    });
-    
-    setTimeout(() => {
-       tween.play(); 
-    }, 2000);
-          
-      }
-}
+imagine = new Image();
 
 
   ngOnInit() {
-      this.showImage("assets/oeuvre.jpg");
+      this.imagine.src = "assets/oeuvre.jpg";
+    
+    this.imagine.onload = () => {
+        this.configRect.next({
+   x: 220,
+    y: 150,
+    width: this.imagine.width,
+    height: this.imagine.height,
+    fillPatternImage: this.imagine
+});
+    };
   }
 
 ngAfterViewInit(){
+    
+    const anim = new Konva.Animation((frame: any) => {
+       this.image.getStage().rotate(frame.time * 2 * Math.PI); 
+    }, this.layer.getStage());
     
 }
 
