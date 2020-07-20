@@ -232,6 +232,12 @@ app-contact{
             i{
                 width: p.$tailleIcone - 2;
                 height: p.$tailleIcone - 2;
+                
+            svg{
+                border: red solid 1px;
+                position: relative;
+                bottom: 2.6rem;
+            }
             }
         }
         

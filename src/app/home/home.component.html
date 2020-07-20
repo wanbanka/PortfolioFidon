@@ -6,7 +6,7 @@
 </header>
 
 
-<ko-stage [config]="configStage" *ngFor="let rectangle of imagesRectangles">
+<ko-stage #stage *ngFor="let rectangle of imagesRectangles" [config]="configStage">
     <ko-layer>
             <ko-rect #rect [config]="rectangle"></ko-rect>
     </ko-layer>
