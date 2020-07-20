@@ -7,7 +7,7 @@
     select{
         font-size: p.$tailleLien;
         font-family: "Oxanium";
-        padding: 1rem 11.25rem 1rem 11.25rem;
+        padding: 1rem 11.25rem;
         border: none;
     }
 }
@@ -28,14 +28,45 @@
         a{
             display: block;
             padding: 1rem 1rem 0.5rem 1rem;
+            border: none;
             transition-duration: 0.5s;
+            transition-property: border;
             
-            &:hover{
+            &:hover, &:active, &:focus{
                 border: 0.5rem solid #ffffff;
                 transition-duration: 0.5s;
                 transition-property: border;
             }
         }
+    }
+    
+}
+
+@include p.smartphone{
+    
+    .choix_oeuvres{
+        select{
+            font-size: p.$tailleLien - 1.5;
+            padding: 1rem 6rem;
+        }
+    }
+    
+    .liste_oeuvres{
+        
+        p{
+           font-size: p.$tailleLien - 1.5; 
+        }
+        
+        .oeuvre{
+            width: 15rem;
+            
+            a{
+                &:hover, &:active, &:focus{
+                    border-width: 0.3rem;
+                }
+            }
+        }
+        
     }
     
 }

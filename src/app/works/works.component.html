@@ -9,7 +9,7 @@
 
 <section class="liste_oeuvres">
     
-    <p *ngIf=" displayOeuvres.length === 0">Pas d'oeuvres<span *ngIf="anneeOeuvre === annees[annees.length - 1]">pour le moment</span></p>
+    <p *ngIf=" displayOeuvres.length === 0">Pas d'oeuvres<br><span *ngIf="anneeOeuvre === annees[annees.length - 1]">pour le moment</span></p>
     
     <div class="oeuvre" *ngFor="let oeuvre of displayOeuvres">
         <a [routerLink]="[oeuvre.id_oeuvre]">

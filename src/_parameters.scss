@@ -10,6 +10,12 @@ $tailleLien: 3rem;
 
 $hauteurNav: 12.5vh;
 
+$miniDesktop: 1200px;
+
+$tablet: 992px;
+
+$smartphone: 768px;
+
 %position_section{
     display: grid;
     justify-content: center;
@@ -27,7 +33,7 @@ $hauteurNav: 12.5vh;
 }
 
 %focus_formulaire{
-    transition-duration: 0.5s;
+                transition-duration: 0.5s;
                 transition-property: border;
                 border-width: 0.0625rem; 
                 border-style: solid;
@@ -45,4 +51,28 @@ $hauteurNav: 12.5vh;
     background-color: $couleur1;
     color: $couleur2;
     transition-duration: 0.5s;
+}
+
+@mixin miniDesktop{
+    
+    @media screen and (min-width: #{$tablet}) and (max-width: #{$miniDesktop}){
+        @content;
+    }
+    
+}
+
+@mixin tablet{
+    
+    @media screen and (min-width: #{$smartphone}) and (max-width: #{$tablet}){
+        @content;
+    }
+    
+}
+
+@mixin smartphone{
+    
+    @media screen and (max-width: #{$smartphone}){
+        @content;
+    }
+    
 }

@@ -1,6 +1,6 @@
 <section class="biography">
     <section *ngFor="let section of sections">
-        <img src="{{section.photo_section}}" alt="Illustration" title="Illustration" width="350" height="223">
+         <img src="{{section.photo_section}}" alt="Illustration" title="Illustration">
         <div [innerHTML]="section.texte_section | hTML"></div>
     </section>
 </section>
@@ -8,7 +8,7 @@
 
 <section class="exhibitions">
     
-    <div class="title">EXPOSITIONS</div>
+    <div class="title">EXPOSITIONS</div><br>
     
     <div class="select_year">
        <button class="prev" (click)="prevIndex()"><i class="icon icon-left"></i></button>
