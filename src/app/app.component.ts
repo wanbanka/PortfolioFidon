@@ -16,12 +16,6 @@ export class AppComponent{
         this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
         console.log(this.nomPage);
     }
-    
-    pathsMenu: string[] = [
-      "M419 831 c-25 -25 -29 -37 -29 -81 0 -44 4 -56 29 -81 25 -25 37 -29 81 -29 44 0 56 4 81 29 25 25 29 37 29 81 0 44 -4 56 -29 81 -25 25 -37 29 -81 29 -44 0 -56 -4 -81 -29z",
-    "M419 581 c-25 -25 -29 -37 -29 -81 0 -44 4 -56 29 -81 25 -25 37 -29 81 -29 44 0 56 4 81 29 25 25 29 37 29 81 0 74 -36 110 -110 110 -44 0 -56 -4 -81 -29z",
-        "M419 331 c-25 -25 -29 -37 -29 -81 0 -44 4 -56 29 -81 25 -25 37 -29 81 -29 44 0 56 4 81 29 25 25 29 37 29 81 0 74 -36 110 -110 110 -44 0 -56 -4 -81 -29z"
-    ];
   
     determine: boolean = false;
 nomPage: string;

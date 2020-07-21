@@ -82,8 +82,6 @@ let configRect: any;
       
       this.imagesRectangles = [...this.imagesRectangles, configRect];
               
-              console.table(this.imagesRectangles);
-              
     this.rects.forEach((rectangle) => {
        this.addTween(rectangle); 
     });
