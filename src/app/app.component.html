@@ -1,12 +1,10 @@
 <nav class="container">
-    <button [ngClass]="{'lost': comeback}" (click)="toggleMenu()">
-    <div>
+    <button (click)="start()">
+    <div [ngClass]="{'close': determine, 'fleche': comeback}">
         <span></span>
         <span></span>
         <span></span>
-    </div><span [ngClass]="{'lost': determine}"><b>MENU</b></span></button>
-    
-    <button [ngClass]="{'lost': !comeback}" (click)="backWorks()"><i class="icon icon-back"></i></button>
+    </div><span [ngClass]="{'menu-text': true, 'lost': determine || comeback}"><b>MENU</b></span></button>
     
     <span class="nomPage">{{nomPage | uppercase}}</span>
     

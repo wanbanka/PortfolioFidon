@@ -66,7 +66,7 @@ export class ContactComponent implements OnInit, OnDestroy {
             
             setTimeout(() => {
                 this.success = false;
-            }, 2000);
+            }, 3500);
             
         }).catch((error) => {
             console.log(error);
