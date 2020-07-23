@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import {Location} from '@angular/common';
 
+import {Router} from '@angular/router';
+
 import {ColorsServiceService} from './Services/colors-service.service';
 
 @Component({
@@ -11,7 +13,7 @@ import {ColorsServiceService} from './Services/colors-service.service';
 })
 export class AppComponent{
     
-    constructor(private location: Location, private colors: ColorsServiceService){
+    constructor(private location: Location, private colors: ColorsServiceService, private router: Router){
         this.nomPage = this.location.path().replace('/', '');
         this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
         console.log(this.nomPage);
@@ -39,7 +41,7 @@ notePage(event){
 }
 
 backWorks(){
-    this.location.back();
+    this.router.navigate(['/oeuvres']);
     this.comeback = false;
 }
 
