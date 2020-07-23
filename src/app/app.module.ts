@@ -1,10 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
+
+import{ BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgTimelineVerticalModule} from 'ng-timeline-vertical';
+import {KonvaModule} from 'ng2-konva';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -39,11 +43,13 @@ registerLocaleData(localeFr, 'fr');
   ],
   imports: [
     BrowserModule,
+      BrowserAnimationsModule,
     AppRoutingModule,
       FormsModule,
       ReactiveFormsModule,
       HttpClientModule,
-      NgTimelineVerticalModule
+      NgTimelineVerticalModule,
+      KonvaModule
   ],
   providers: [
       PortfolioService,

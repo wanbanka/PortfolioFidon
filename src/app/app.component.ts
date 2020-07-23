@@ -17,12 +17,29 @@ export class AppComponent{
         this.nomPage = this.location.path().replace('/', '');
         this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
         console.log(this.nomPage);
+        this.callFunctionNavigation();
     }
   
     determine: boolean = false;
 nomPage: string;
 
 comeback: boolean = false;
+
+start: any;
+
+callFunctionNavigation(){
+    if(this.comeback){
+        this.start = () => {
+            this.backWorks();
+        };
+    } else {
+        this.start = () => {
+            this.toggleMenu();
+        };
+    }
+    
+    console.log(this.start);
+}
 
 afficheBack(event){
     
@@ -32,17 +49,21 @@ afficheBack(event){
     this.nomPage = '';
     
     }
+    
+    this.callFunctionNavigation();
 }
 
 notePage(event){
     this.determine = false;
     this.nomPage = this.location.path().replace('/', '');
     this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
+    this.callFunctionNavigation();
 }
 
 backWorks(){
     this.router.navigate(['/oeuvres']);
     this.comeback = false;
+    this.callFunctionNavigation();
 }
 
 toggleMenu(){
