@@ -305,6 +305,10 @@ app-contact{
         
     }
     
+    textarea, input[type="text"], input[type="email"]{
+        font-size: 1rem;
+    }
+    
     app-home{
     margin-top: p.$hauteurNav - 10;
     }

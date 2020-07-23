@@ -1,4 +1,4 @@
-<ul [ngClass]="{'close': !open}">
+<ul [@openMenu]="open ? 'visible' : 'close'">
     <li><a routerLink="home" routerLinkActive="active"><i class="icon icon-home"></i>ACCUEIL</a><hr></li>
     <li><a routerLink="presentation" routerLinkActive="active"><i class="icon icon-intro"></i>PRESENTATION</a><hr></li>
     <li><a routerLink="oeuvres" routerLinkActive="active"><i class="icon icon-oeuvre"></i>OEUVRES</a><hr></li>

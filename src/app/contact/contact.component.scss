@@ -1,33 +1,4 @@
-@use '../../parameters' as p;  
-
-@keyframes scaling{
-    from{
-        transform: scale(0);
-        visibility: hidden;
-    }
-    
-    to{
-        transform: scale(1);
-        visibility: visible;
-    }
-}
-
-@keyframes scaling2{
-    from{
-        transform: scale(0);
-        visibility: hidden;
-    }
-    
-    50%{
-        transform: scale(1);
-        visibility: visible;
-    }
-    
-    to{
-        transform: scale(0);
-        visibility: hidden;
-    }
-}
+@use '../../parameters' as p;
 
 .envoi_mail{
     
@@ -38,26 +9,11 @@
     grid-template-areas: "ensemble";
     
     form {
-    
-    @extend %position_section;
-        grid-area: ensemble;
-    margin-top: p.$hauteurNav + 4;
-    grid-template-areas: "nom textarea",
-        "prenom textarea",
-        "mail textarea",
-        "submit";
-    grid-template-rows: repeat(3, 15%);
-    grid-template-columns: 30%;
-    grid-column-gap: 3%;
-    grid-row-gap: 17%;
-        height: 50vh;
         
-         &.lost{
-             animation-name: scaling;
-            animation-duration: 0.5s;
-            animation-direction: reverse;
-             animation-fill-mode: forwards;
-        }
+        height: 50vh;
+        grid-template-columns: 30%;
+        grid-template-rows: repeat(3, 15%);
+        grid-row-gap: 17%;
     
     label {
         font-size: 1.5rem;
@@ -121,12 +77,6 @@
         grid-template-areas: "icone",
             "message";
         grid-template-rows: 30% 70%;
-        visibility: hidden;
-        
-        &.anime{
-            animation-name: scaling2;
-            animation-duration: 3.5s;
-        }
         
         i{
             position: relative;

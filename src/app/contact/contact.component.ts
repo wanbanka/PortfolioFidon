@@ -1,4 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
+
+import {trigger, state, style, animate, transition} from '@angular/animations';
 
 import {ColorsServiceService} from '../Services/colors-service.service';
 
@@ -9,7 +11,66 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+    animations: [
+        
+        trigger('switchMessage', [
+           
+           state('lost', style({
+            transform: 'scale(0)',
+            display: 'none'
+        })),
+        
+        state('visible', style({
+            transform: 'scale(1)',
+            display: 'grid',
+    justifyContent: 'center',
+    alignItems: 'center',
+        gridArea: 'ensemble',
+    marginTop: '16.5vh',
+    gridColumnGap: '3%'
+        })),
+        
+        transition('visible => lost', [
+            animate('1s ease-in')
+        ]),
+            
+        transition('lost => visible', [
+            animate('1s ease-in')
+        ])
+            
+        ]),
+        
+        trigger('switchMessage2', [
+            
+            state('lost', style({
+            transform: 'scale(0)',
+            display: 'none'
+        })),
+        
+        state('visible', style({
+            transform: 'scale(1)',
+            display: 'grid',
+    justifyContent: 'center',
+    alignItems: 'center',
+        marginTop: '16.5vh',
+        height: '50vh',
+        gridArea: 'ensemble',
+        
+   
+        gridTemplateRows: '30% 70%'
+        })),
+        
+        transition('visible => lost', [
+            animate('1s ease-in')
+        ]),
+            
+        transition('lost => visible', [
+            animate('1s ease-in')
+        ])
+            
+        ])
+    ]
 })
 export class ContactComponent implements OnInit, OnDestroy {
 
