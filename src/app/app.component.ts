@@ -16,6 +16,15 @@ export class AppComponent{
     constructor(private location: Location, private colors: ColorsServiceService, private router: Router){
         this.nomPage = this.location.path().replace('/', '');
         this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
+        
+        if(this.nomPage === "not-found"){
+            this.nomPage = this.nomPage.replace("not-found", '');
+            this.lost = true;
+        } else {
+            this.nomPage = this.nomPage;
+            this.lost = false;
+        }
+        
         console.log(this.nomPage);
         this.callFunctionNavigation();
     }
@@ -26,6 +35,8 @@ nomPage: string;
 comeback: boolean = false;
 
 start: any;
+
+lost: boolean = false;
 
 callFunctionNavigation(){
     if(this.comeback){
