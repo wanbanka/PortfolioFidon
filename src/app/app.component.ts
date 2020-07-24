@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {Location} from '@angular/common';
 
@@ -11,9 +11,32 @@ import {ColorsServiceService} from './Services/colors-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
     
     constructor(private location: Location, private colors: ColorsServiceService, private router: Router){
+        this.startPage();
+        
+        console.log(this.lost);
+    }
+    
+    ngOnInit(){
+        
+        this.startPage();
+        console.log(this.lost);
+        
+    }
+  
+    determine: boolean = false;
+nomPage: string;
+
+comeback: boolean = false;
+
+start: any;
+
+lost: boolean = false;
+    
+    startPage(){
+        
         this.nomPage = this.location.path().replace('/', '');
         this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
         
@@ -27,16 +50,8 @@ export class AppComponent{
         
         console.log(this.nomPage);
         this.callFunctionNavigation();
+        
     }
-  
-    determine: boolean = false;
-nomPage: string;
-
-comeback: boolean = false;
-
-start: any;
-
-lost: boolean = false;
 
 callFunctionNavigation(){
     if(this.comeback){
@@ -72,7 +87,7 @@ notePage(event){
 }
 
 backWorks(){
-    this.router.navigate(['/oeuvres']);
+    this.router.navigateByUrl('/oeuvres');
     this.comeback = false;
     this.callFunctionNavigation();
 }

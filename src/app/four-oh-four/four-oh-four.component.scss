@@ -1,0 +1,31 @@
+@use '../../parameters' as p;
+
+.erreur_404{
+    @extend %position_section;
+    margin-top: p.$hauteurNav - 2;
+    text-align: center;
+    
+    height: 50vh;
+    
+    h1{
+        font-size: 10rem;
+    }
+    
+    p{
+        font-size: 2rem;
+    }
+    
+    .btn-back{
+        border: 0.3rem solid #000000;
+        border-radius: 5rem;
+        font-size: 2rem;
+        
+        &:hover, &:active, &:focus{
+            @include p.effectSurvol(#000000, #ffffff);
+        }
+    }
+}
+
+img{
+    position: absolute;
+}

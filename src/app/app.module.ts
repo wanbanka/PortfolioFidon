@@ -21,7 +21,6 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 import {PortfolioService} from './Services/portfolio.service';
 import {ColorsServiceService} from './Services/colors-service.service';
-import {ErrorRouteGuardService} from './Services/error-route-guard.service';
 
 import { HTMLPipe } from './Pipes/html.pipe';
 
@@ -56,7 +55,6 @@ registerLocaleData(localeFr, 'fr');
   providers: [
       PortfolioService,
       ColorsServiceService,
-      ErrorRouteGuardService,
       {provide: LOCALE_ID, useValue: 'fr'}
   ],
   bootstrap: [AppComponent]

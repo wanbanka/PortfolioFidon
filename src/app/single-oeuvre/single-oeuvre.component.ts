@@ -34,12 +34,9 @@ export class SingleOeuvreComponent implements OnInit, OnDestroy {
       this.portfolio.getWorkById(+this.id);
       
       this.oeuvreSubscription = this.portfolio.worksSubject.subscribe((oeuvre) => {
-          
-          if(oeuvre.length > 0){
               
           this.oeuvre = oeuvre[0];
           console.table(this.oeuvre);
-          }
       });
       
       this.portfolio.emitWorks();
