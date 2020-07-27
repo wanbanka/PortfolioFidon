@@ -1,0 +1,198 @@
+@use '../../parameters' as p;
+
+nav{
+    position: fixed;
+    display: grid;
+    align-items: center;
+    grid-area: nav;
+    width: 100%;
+    height: p.$hauteurNav;
+    z-index: p.$zindexMenu;
+    background-color: var(--bg-page);
+    top: 0;
+    left: 0;
+    
+    button{
+        width: 10%;
+        background-color: transparent;
+        border-color: transparent;
+        outline: inherit;
+        position: fixed;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-areas: "icone texte";
+        grid-template-columns: 10% 40%;
+        left: 1%;
+        z-index: p.$zindexMenu;
+        
+        &:hover{
+            cursor: pointer;
+        }
+        
+        span.menu-text {
+            -webkit-writing-mode: vertical-rl;
+            -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            grid-area: texte;
+            font-family: 'Oxanium';
+            font-size: 1.3rem;
+            opacity: 1;
+            transition-duration: 0.5s;
+            transition-property: opacity;
+        }
+        
+        div{
+            
+            grid-area: icone;
+            
+            &.close{
+                span{
+                    
+                    transition-duration: 0.5s;
+                    
+                    &:nth-child(2){
+                        display: none;
+                        opacity: 0;
+                        transition-property: opacity;
+                    }
+                    
+                    &:first-child{
+                        width: 5rem;
+                        transform-origin: 0 0;
+                        transform: rotateZ(45deg);
+                    }
+                    
+                    &:last-child{
+                        width: 5rem;
+                        transform-origin: 0 0;
+                        transform: rotateZ(-45deg) translateX(-40%) translateY(35%);
+                    }
+                }
+            }
+            
+            &.fleche{
+                    
+                    span{
+                        
+                        transition-duration: 0.5s;
+                        
+                        &:nth-child(2){
+                            width: 5rem;
+                            border-radius: 1rem;
+                    }
+                    
+                    &:first-child{
+                        width: 3.5rem;
+                        transform-origin: 0 0;
+                        transform: rotateZ(130deg) translateX(-30%) translateY(-140%);
+                    }
+                    
+                    &:last-child{
+                        width: 3.5rem;
+                        transform-origin: 0 0;
+                        transform: rotateZ(35deg) translateX(-27%) translateY(-60%);
+                    }
+                    }
+                }
+            
+            span{
+                transition-duration: 0.5s;
+                opacity: 1;
+                display: block;
+                margin: 0 auto;
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: #000000;
+                border-radius: 50%;
+            }
+        }
+    }
+    
+    .lost{
+        display: none;
+        opacity: 0;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+    }
+    
+    .nomPage{
+        position: fixed;
+        left: 35%;
+        top: 2%;
+        font-size: 4rem;
+        text-align: center;
+    }
+}
+
+@include p.miniDesktop{
+    
+    nav{
+        
+        position: fixed;
+        
+        button{
+           grid-template-areas: "icone texte";
+            grid-template-columns: 20% 50%; 
+        }
+        
+        .nomPage{
+            left: 30%;
+        }
+        
+    }
+    
+}
+
+@include p.tablet{
+    
+    nav{
+        
+        position: fixed;
+        
+        button{
+            left: 0;
+            width: 15%;
+           grid-template-areas: "icone texte";
+            grid-template-columns: 20% 40%;
+        }
+        
+        .nomPage{
+            left: 25%;
+        }
+        
+    }
+    
+}
+
+@include p.smartphone{
+    
+    nav{
+        
+        position: fixed;
+        
+        button{
+            width: 5rem;
+           grid-template-areas: "icone texte";
+            grid-template-columns: 30% 3rem;
+            
+            span{
+            font-size: 1.2rem;
+        }
+            
+            i{
+                width: p.$tailleIcone - 2;
+                height: p.$tailleIcone - 2;
+            }
+        }
+        
+        .nomPage{
+            left: 30vw;
+            top: 3.5%;
+            font-size: 1.7rem;
+        }
+        
+    }
+    
+}

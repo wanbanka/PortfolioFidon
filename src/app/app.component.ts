@@ -35,15 +35,25 @@ start: any;
 
 lost: boolean = false;
     
+listePages: string[] = ['', 'home', 'introduction', 'oeuvres', 'contact'];
+    
     startPage(){
         
         this.nomPage = this.location.path().replace('/', '');
         this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
         
-        if(this.nomPage === "not-found"){
-            this.nomPage = this.nomPage.replace("not-found", '');
+        
+        
+        if(this.listePages.indexOf(this.nomPage) === -1){
+            
+            this.nomPage = this.nomPage.replace(this.nomPage, '');
+            
+            console.log(this.nomPage);
+            
             this.lost = true;
+            
         } else {
+            
             this.nomPage = this.nomPage;
             this.lost = false;
         }
@@ -72,6 +82,7 @@ afficheBack(event){
     if(event.route){
         
     this.comeback = true;
+    this.lost = false;
     this.nomPage = '';
     
     }
@@ -84,6 +95,18 @@ notePage(event){
     this.nomPage = this.location.path().replace('/', '');
     this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
     this.callFunctionNavigation();
+    
+    if(this.router.url === '' || this.router.url === '/home'){
+        
+        this.lost = false;
+        this.comeback = false;
+        
+    } else if(this.router.url === '/not-found'){
+        
+        this.nomPage = this.nomPage.replace('not-found', '');
+        
+        this.lost = true;
+    }
 }
 
 backWorks(){
