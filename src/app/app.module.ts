@@ -6,9 +6,10 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgTimelineVerticalModule} from 'ng-timeline-vertical';
 import {KonvaModule} from 'ng2-konva';
+import {NgxLoadingSpinnerModule, NgxLoadingSpinnerInterceptor} from 'ng-loading-spinner';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -49,12 +50,14 @@ registerLocaleData(localeFr, 'fr');
       ReactiveFormsModule,
       HttpClientModule,
       NgTimelineVerticalModule,
-      KonvaModule
+      KonvaModule,
+      NgxLoadingSpinnerModule
   ],
   providers: [
       PortfolioService,
       ColorsServiceService,
-      {provide: LOCALE_ID, useValue: 'fr'}
+      {provide: LOCALE_ID, useValue: 'fr'},
+      {provide: HTTP_INTERCEPTORS, useClass: NgxLoadingSpinnerInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

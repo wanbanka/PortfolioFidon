@@ -11,4 +11,6 @@
     <app-menu [open]="determine"></app-menu>
 </nav>
 
+<ngx-loading-spinner color="#000000"></ngx-loading-spinner>
+
 <router-outlet (activate)="afficheBack($event)" (deactivate)="notePage($event)"></router-outlet>
