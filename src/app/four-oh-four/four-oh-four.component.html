@@ -1,8 +1,8 @@
 <div class="erreur_404">
     <h1>
-        <span>4</span>
-        <span>0</span>
-        <span>4</span>
+        <span [@revealLetter]="lettersStart[0] ? 'aliveLetter' : 'lostLetter'">4</span>
+        <span [@revealLetter]="lettersStart[1] ? 'aliveLetter' : 'lostLetter'">0</span>
+        <span [@revealLetter]="lettersStart[2] ? 'aliveLetter' : 'lostLetter'">4</span>
     </h1>
     
     <div class="cadre_peinture" [@revealCadre]="!isVisible ? 'hidden' : 'visible'">

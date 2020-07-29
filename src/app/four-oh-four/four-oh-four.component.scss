@@ -1,5 +1,14 @@
 @use '../../parameters' as p;
 
+@font-face{
+    font-family: 'OceanRush';
+    src: url(../../fonts/OceanRushDEMO/OceanRushDEMO.ttf),
+        url(../../fonts/OceanRushDEMO/OceanRushDEMO.eot),
+        url(../../fonts/OceanRushDEMO/OceanRushDEMO.otf),
+        url(../../fonts/OceanRushDEMO/OceanRushDEMO.woff) format('woff'),
+        url(../../fonts/OceanRushDEMO/OceanRushDEMO.ttf) format('woff2');
+}
+
 @mixin param_image($image){
     
     background-image: url(#{$image});
@@ -24,9 +33,14 @@
     
     h1{
         font-size: 6rem;
-        margin-top: p.$hauteurNav + 4;
+        font-family: 'OceanRush';
+        margin-top: p.$hauteurNav + 3;
         position: relative;
         z-index: 1;
+        
+        span{
+            display: inline-block;
+        }
     }
     
     p{
@@ -70,6 +84,17 @@
     }
 }
 
-img{
-    position: absolute;
+@include p.smartphone{
+    .erreur_404{
+        
+        h1{
+            font-size: 3rem;
+            margin-top: p.$hauteurNav + 7;
+        }
+        
+        p, .btn-back{
+            font-size: 1rem;
+            margin-top: p.$hauteurNav + 8;
+        }
+    }
 }

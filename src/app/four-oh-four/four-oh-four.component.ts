@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {ColorsServiceService} from '../Services/colors-service.service';
 
-import {trigger, state, style, animate, transition, group, sequence} from '@angular/animations';
+import {trigger, keyframes, state, style, animate, transition, group, sequence} from '@angular/animations';
 
 @Component({
   selector: 'app-four-oh-four',
@@ -23,16 +23,12 @@ import {trigger, state, style, animate, transition, group, sequence} from '@angu
             
             transition('hidden => visible', [
                 animate('0.5s ease-out')
-            ]),
-            
-            transition('visible => hidden', [
-                animate('0.5s ease-out')
             ])
         ]),
         
         trigger("animPinceau", [
             state('arriveePinceau', style({
-                left: '35%',
+                left: '30%',
                 opacity: '1'
             })),
             
@@ -43,15 +39,25 @@ import {trigger, state, style, animate, transition, group, sequence} from '@angu
             
             transition('arriveePinceau => departPinceau', [
                 sequence([
-            animate('0.3s', style({
+                    
+            animate('0.9s', keyframes([
+                style({
                 transform: 'rotate(0deg)'
-            })),
-            animate('0.3s', style({
+                }),
+                    style({
+                        left: '35%',
                 transform: 'rotate(-10deg)'
-            })),
-            animate('0.3s', style({
+            }),
+                style({
+                    left: '42.5%',
                 transform: 'rotate(10deg)'
-            })),
+            }),
+                style({
+                    left: '50%',
+                    transform: 'rotate(0deg)'
+                })
+            ])),
+                    
                     animate('0.5s ease-in')
         ])
         ]),
@@ -59,6 +65,24 @@ import {trigger, state, style, animate, transition, group, sequence} from '@angu
     animate('0.5s ease-in')
     ])
         
+        ]), 
+        
+        trigger('revealLetter', [
+            
+            state('lostLetter', style({
+                opacity: '0',
+                transform: 'rotateY(180deg)'
+            })),
+            
+            state('aliveLetter', style({
+                opacity: '1'
+            })),
+            
+            transition('lostLetter => aliveLetter', [
+                    
+                    animate('0.5s ease-in')
+            ])
+            
         ])
         
     ]
@@ -74,20 +98,36 @@ export class FourOhFourComponent implements OnInit {
     isVisible: boolean = false;
     
     animPinceau: boolean = false;
+    
+    lettersStart: boolean[] = [false, false, false];
 
   ngOnInit() {
       
+      let time = 1800;
+      
       setTimeout(() => {
           this.isVisible = true;
-      }, 1000);
+      }, 500);
       
       setTimeout(() => {
           this.animPinceau = true;
-      }, 2000);
+      }, 1000);
       
       setTimeout(() => {
           this.animPinceau = false;
-      }, 2700);
+      }, 1700);
+      
+      setTimeout(() => {
+          this.lettersStart[0] = true;
+      }, 2000);
+      
+      setTimeout(() => {
+          this.lettersStart[1] = true;
+      }, 2050);
+      
+      setTimeout(() => {
+          this.lettersStart[2] = true;
+      }, 2100);
       
   }
 
