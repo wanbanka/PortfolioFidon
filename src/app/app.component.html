@@ -1,5 +1,5 @@
 <nav class="container">
-    <button (click)="start()">
+    <button (click)="start()" [ngClass]="{'lost': lost}">
     <div [ngClass]="{'close': determine, 'fleche': comeback}">
         <span></span>
         <span></span>

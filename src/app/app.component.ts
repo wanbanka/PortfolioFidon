@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {Location} from '@angular/common';
+
+import {Router} from '@angular/router';
 
 import {ColorsServiceService} from './Services/colors-service.service';
 
@@ -9,13 +11,19 @@ import {ColorsServiceService} from './Services/colors-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
     
-    constructor(private location: Location, private colors: ColorsServiceService){
-        this.nomPage = this.location.path().replace('/', '');
-        this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
-        console.log(this.nomPage);
-        this.callFunctionNavigation();
+    constructor(private location: Location, private colors: ColorsServiceService, private router: Router){
+        this.startPage();
+        
+        console.log(this.lost);
+    }
+    
+    ngOnInit(){
+        
+        this.startPage();
+        console.log(this.lost);
+        
     }
   
     determine: boolean = false;
@@ -24,6 +32,36 @@ nomPage: string;
 comeback: boolean = false;
 
 start: any;
+
+lost: boolean = false;
+    
+listePages: string[] = ['', 'home', 'introduction', 'oeuvres', 'contact'];
+    
+    startPage(){
+        
+        this.nomPage = this.location.path().replace('/', '');
+        this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
+        
+        
+        
+        if(this.listePages.indexOf(this.nomPage) === -1){
+            
+            this.nomPage = this.nomPage.replace(this.nomPage, '');
+            
+            console.log(this.nomPage);
+            
+            this.lost = true;
+            
+        } else {
+            
+            this.nomPage = this.nomPage;
+            this.lost = false;
+        }
+        
+        console.log(this.nomPage);
+        this.callFunctionNavigation();
+        
+    }
 
 callFunctionNavigation(){
     if(this.comeback){
@@ -44,6 +82,7 @@ afficheBack(event){
     if(event.route){
         
     this.comeback = true;
+    this.lost = false;
     this.nomPage = '';
     
     }
@@ -56,10 +95,22 @@ notePage(event){
     this.nomPage = this.location.path().replace('/', '');
     this.nomPage === 'home' ? this.nomPage = this.nomPage.replace('home', '') : this.nomPage = this.nomPage;
     this.callFunctionNavigation();
+    
+    if(this.router.url === '' || this.router.url === '/home'){
+        
+        this.lost = false;
+        this.comeback = false;
+        
+    } else if(this.router.url === '/not-found'){
+        
+        this.nomPage = this.nomPage.replace('not-found', '');
+        
+        this.lost = true;
+    }
 }
 
 backWorks(){
-    this.location.back();
+    this.router.navigateByUrl('/oeuvres');
     this.comeback = false;
     this.callFunctionNavigation();
 }

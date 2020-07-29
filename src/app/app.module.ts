@@ -22,10 +22,12 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 import {PortfolioService} from './Services/portfolio.service';
 import {ColorsServiceService} from './Services/colors-service.service';
+
 import { HTMLPipe } from './Pipes/html.pipe';
 
 import {registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { NavComponent } from './nav/nav.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -40,7 +42,8 @@ registerLocaleData(localeFr, 'fr');
     ContactComponent,
     SingleOeuvreComponent,
     FourOhFourComponent,
-    HTMLPipe
+    HTMLPipe,
+    NavComponent
   ],
   imports: [
     BrowserModule,

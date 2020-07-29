@@ -1,0 +1,100 @@
+@use '../../parameters' as p;
+
+@font-face{
+    font-family: 'OceanRush';
+    src: url(../../fonts/OceanRushDEMO/OceanRushDEMO.ttf),
+        url(../../fonts/OceanRushDEMO/OceanRushDEMO.eot),
+        url(../../fonts/OceanRushDEMO/OceanRushDEMO.otf),
+        url(../../fonts/OceanRushDEMO/OceanRushDEMO.woff) format('woff'),
+        url(../../fonts/OceanRushDEMO/OceanRushDEMO.ttf) format('woff2');
+}
+
+@mixin param_image($image){
+    
+    background-image: url(#{$image});
+        background-repeat: no-repeat;
+        background-size: contain;
+    background-position: center center;
+    
+    width: 30%;
+    
+        height: 15vh;
+    
+    position: absolute;
+    
+}
+
+.erreur_404{
+    @extend %position_section;
+    margin-top: p.$hauteurNav - 10;
+    text-align: center;
+    
+    height: 50vh;
+    
+    h1{
+        font-size: 6rem;
+        font-family: 'OceanRush';
+        margin-top: p.$hauteurNav + 3;
+        position: relative;
+        z-index: 1;
+        
+        span{
+            display: inline-block;
+        }
+    }
+    
+    p{
+        font-size: 2rem;
+    }
+    
+    .cadre_peinture{
+        
+        @include param_image('../../assets/cadre.png');
+        
+        transform-origin: center center;
+        
+         left: 35%;
+        
+    top: 20%;
+        
+        z-index: 1;
+    }
+    
+    .pinceau{
+        
+        @include param_image('../../assets/pinceau.png');
+        
+        top: 20%;
+        opacity: 0;
+        
+        transform-origin: center center;
+        
+        z-index: 45;
+        
+    }
+    
+    .btn-back{
+        border: 0.3rem solid #000000;
+        border-radius: 5rem;
+        font-size: 2rem;
+        
+        &:hover, &:active, &:focus{
+            @include p.effectSurvol(#000000, #ffffff);
+        }
+    }
+}
+
+@include p.smartphone{
+    .erreur_404{
+        
+        h1{
+            font-size: 3rem;
+            margin-top: p.$hauteurNav + 7;
+        }
+        
+        p, .btn-back{
+            font-size: 1rem;
+            margin-top: p.$hauteurNav + 8;
+        }
+    }
+}

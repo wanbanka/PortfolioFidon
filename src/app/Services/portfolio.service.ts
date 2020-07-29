@@ -4,14 +4,12 @@ import {Subject, Observable} from 'rxjs';
 
 import {HttpClient, HttpParams} from '@angular/common/http';
 
-import {Router} from '@angular/router';
-
 @Injectable({
   providedIn: 'root'
 })
 export class PortfolioService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
     
     private sections : any[] = [];
 
@@ -114,6 +112,9 @@ getWorks(){
 * @throws Exception
 
 */
+getWorksLength(){
+    return this.works.length;
+}
 
 range(start : number, end : number){
     
@@ -171,7 +172,7 @@ getWorkById(id: number){
     let params = new HttpParams().set('api_key', 'e4530cf5701e631bbd5837b70fba9f9294f44f122c4a961b1577c9ed7176e633d351958ad03993b3a2a38dfae9f4c18f0b099ed8720058ea9ea8437f51d70945').set('oeuvre_id', ''+ id +'');
     
     this.http.get<any[]>('https://theosenilh.fr/api_fidon/recherche_donnees.php', {params}).subscribe((donnees) => {
-            (donnees.length > 0) ? this.putWorks(donnees) : this.router.navigate(['/not-found']);
+            this.putWorks(donnees);
                        },
                     (error) => {
             console.log(error);

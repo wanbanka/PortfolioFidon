@@ -1,1 +1,15 @@
-<p>four-oh-four works!</p>
+<div class="erreur_404">
+    <h1>
+        <span [@revealLetter]="lettersStart[0] ? 'aliveLetter' : 'lostLetter'">4</span>
+        <span [@revealLetter]="lettersStart[1] ? 'aliveLetter' : 'lostLetter'">0</span>
+        <span [@revealLetter]="lettersStart[2] ? 'aliveLetter' : 'lostLetter'">4</span>
+    </h1>
+    
+    <div class="cadre_peinture" [@revealCadre]="!isVisible ? 'hidden' : 'visible'">
+    </div>
+    
+    <div class="pinceau" [@animPinceau]="!animPinceau ? 'departPinceau' : 'arriveePinceau'"></div>
+    
+    <p>Oups... La page que vous recherchez n'existe pas.</p>
+    <a routerLink="/home" class="btn btn-back">PAGE D'ACCUEIL</a>
+</div>
