@@ -25,13 +25,33 @@ exhibitionsSubject : Subject<any[]> = new Subject<any[]>();
 
 worksSubject : Subject<any[]> = new Subject<any[]>();
 
+/**
+
+* Emet toutes les sections récupérées de la base de données
+* @returns void
+
+*/
 emitSections(){
     this.sectionsSubject.next(this.sections.slice());
 }
 
+/**
+
+* Emet toutes les expositions récupérées de la base de données
+* @returns void
+
+*/
+
 emitExhibitions(){
     this.exhibitionsSubject.next(this.exhibitions.slice());
 }
+
+/**
+
+* Emet tous les travaux récupérées de la base de données
+* @returns void
+
+*/
 
 emitWorks(){
     this.worksSubject.next(this.works.slice());
@@ -52,19 +72,56 @@ private putWorks(donnees : any){
     this.emitWorks();
 }
 
+/**
+
+* Récupère toutes les sections
+* @returns void
+
+*/
+
  getSections(){
         this.getDonnees('sections');
     }
+
+/**
+
+* Récupère toutes les expositions
+* @returns void
+
+*/
 
 getExhibitions(){
     this.getDonnees('expositions');
 }
 
+/**
+
+* Récupère tous les travaux
+* @returns void
+
+*/
+
 getWorks(){
     this.getDonnees('oeuvres');
 }
 
+/**
+
+* Renvoie un tableau contenant toutes les valeurs entre le premier et le deuxième nombre
+* @param start number
+* @param end number
+* @returns number[]
+* @throws Exception
+
+*/
+
 range(start : number, end : number){
+    
+    if(start > end){
+        throw "Premier paramètre supérieur au deuxième";
+        return;
+    }
+    
         if(start === end){
             return [start];
         } else {
@@ -101,6 +158,14 @@ private getDonnees(option : string){
     
 }
 
+/**
+
+* Récupère un travail suivant son id
+* @param id number
+* @returns void
+
+*/
+
 getWorkById(id: number){
     
     let params = new HttpParams().set('api_key', 'e4530cf5701e631bbd5837b70fba9f9294f44f122c4a961b1577c9ed7176e633d351958ad03993b3a2a38dfae9f4c18f0b099ed8720058ea9ea8437f51d70945').set('oeuvre_id', ''+ id +'');
@@ -115,6 +180,14 @@ getWorkById(id: number){
                         );
     
 }
+
+/**
+
+* Envoie un mail
+* @param donnees any[]
+* @returns Promise<any>
+
+*/
 
 envoiMail(donnees: any[]): Promise<any>{
     
