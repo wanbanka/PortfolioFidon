@@ -54,16 +54,15 @@ nav{
         justify-content: center;
         align-items: center;
         grid-template-areas: "icone texte";
-        grid-template-columns: 40% 40%;
+        grid-template-columns: 10% 40%;
         left: 1%;
-        top: -1%;
         z-index: p.$zindexMenu;
         
         &:hover{
             cursor: pointer;
         }
         
-        span {
+        span.menu-text {
             -webkit-writing-mode: vertical-rl;
             -ms-writing-mode: tb-rl;
             writing-mode: vertical-rl;
@@ -71,20 +70,75 @@ nav{
             grid-area: texte;
             font-family: 'Oxanium';
             font-size: 1.3rem;
+            opacity: 1;
+            transition-duration: 0.5s;
+            transition-property: opacity;
         }
         
-        .icon-menu{
-            content: url(pictures/menu.png);
-            width: 6rem;
-            height: 6rem;
+        div{
+            
             grid-area: icone;
-        }
-        
-        .icon-close{
-            content: url(pictures/close-menu.png);
-            width: 6rem;
-            height: 6rem;
-            grid-area: icone;
+            
+            &.close{
+                span{
+                    
+                    transition-duration: 0.5s;
+                    
+                    &:nth-child(2){
+                        display: none;
+                        opacity: 0;
+                        transition-property: opacity;
+                    }
+                    
+                    &:first-child{
+                        width: 5rem;
+                        transform-origin: 0 0;
+                        transform: rotateZ(45deg);
+                    }
+                    
+                    &:last-child{
+                        width: 5rem;
+                        transform-origin: 0 0;
+                        transform: rotateZ(-45deg) translateX(-40%) translateY(35%);
+                    }
+                }
+            }
+            
+            &.fleche{
+                    
+                    span{
+                        
+                        transition-duration: 0.5s;
+                        
+                        &:nth-child(2){
+                            width: 5rem;
+                            border-radius: 1rem;
+                    }
+                    
+                    &:first-child{
+                        width: 3.5rem;
+                        transform-origin: 0 0;
+                        transform: rotateZ(130deg) translateX(-30%) translateY(-140%);
+                    }
+                    
+                    &:last-child{
+                        width: 3.5rem;
+                        transform-origin: 0 0;
+                        transform: rotateZ(35deg) translateX(-27%) translateY(-60%);
+                    }
+                    }
+                }
+            
+            span{
+                transition-duration: 0.5s;
+                opacity: 1;
+                display: block;
+                margin: 0 auto;
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: #000000;
+                border-radius: 50%;
+            }
         }
         
         .icon-back{
@@ -98,6 +152,9 @@ nav{
     
     .lost{
         display: none;
+        opacity: 0;
+        transition-property: opacity;
+        transition-duration: 0.5s;
     }
     
     .nomPage{
@@ -166,13 +223,8 @@ textarea{
 }
 
 app-home{
-        display: grid;
-    justify-content: center;
-    align-items: center;
-    margin-top: p.$hauteurNav - 11;
     height: 95vh;
-     grid-template-rows: 50% 30% 20%;
-    }
+}
 
 app-contact{
     height: 75vh;
@@ -185,8 +237,8 @@ app-contact{
         position: fixed;
         
         button{
-           grid-template-areas: "icone . texte";
-            grid-template-columns: 40% 10% 50%; 
+           grid-template-areas: "icone texte";
+            grid-template-columns: 20% 50%; 
         }
         
         .nomPage{
@@ -206,8 +258,8 @@ app-contact{
         button{
             left: 0;
             width: 15%;
-           grid-template-areas: "icone . texte";
-            grid-template-columns: 30% 10% 40%;
+           grid-template-areas: "icone texte";
+            grid-template-columns: 20% 40%;
         }
         
         .nomPage{
@@ -225,10 +277,9 @@ app-contact{
         position: fixed;
         
         button{
-            left: 0;
             width: 5rem;
-           grid-template-areas: "icone . texte";
-            grid-template-columns: 30% 1rem 3rem;
+           grid-template-areas: "icone texte";
+            grid-template-columns: 30% 3rem;
             
             span{
             font-size: 1.2rem;
@@ -237,6 +288,12 @@ app-contact{
             i{
                 width: p.$tailleIcone - 2;
                 height: p.$tailleIcone - 2;
+                
+            svg{
+                border: red solid 1px;
+                position: relative;
+                bottom: 2.6rem;
+            }
             }
         }
         
@@ -246,6 +303,10 @@ app-contact{
             font-size: 1.7rem;
         }
         
+    }
+    
+    textarea, input[type="text"], input[type="email"]{
+        font-size: 1rem;
     }
     
     app-home{

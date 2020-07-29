@@ -1,7 +1,13 @@
 <header>
     <h1>JERÔME FIDON</h1>
     <h2>ARTISTE-PEINTRE PARISIEN</h2>
+    
+<a routerLink="/oeuvres" class="btn btn-oeuvre">DECOUVRIR LES OEUVRES</a>
 </header>
 
 
-<a routerLink="/oeuvres" class="btn btn-oeuvre">DECOUVRIR LES OEUVRES</a>
+<ko-stage #stage *ngFor="let rectangle of imagesRectangles" [config]="configStage">
+    <ko-layer>
+            <ko-rect #rect [config]="rectangle"></ko-rect>
+    </ko-layer>
+</ko-stage>

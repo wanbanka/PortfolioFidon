@@ -1,11 +1,16 @@
 <nav class="container">
-    <button [ngClass]="{'lost': comeback}" (click)="toggleMenu()"><i [ngClass]="{'icon': true, 'icon-menu': !determine, 'icon-close': determine}"></i><span [ngClass]="{'lost': determine}"><b>MENU</b></span></button>
-    
-    <button [ngClass]="{'lost': !comeback}" (click)="backWorks()"><i class="icon icon-back"></i></button>
+    <button (click)="start()">
+    <div [ngClass]="{'close': determine, 'fleche': comeback}">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div><span [ngClass]="{'menu-text': true, 'lost': determine || comeback}"><b>MENU</b></span></button>
     
     <span class="nomPage">{{nomPage | uppercase}}</span>
     
     <app-menu [open]="determine"></app-menu>
 </nav>
+
+<ngx-loading-spinner color="#000000"></ngx-loading-spinner>
 
 <router-outlet (activate)="afficheBack($event)" (deactivate)="notePage($event)"></router-outlet>

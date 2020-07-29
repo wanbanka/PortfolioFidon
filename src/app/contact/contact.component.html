@@ -1,15 +1,17 @@
 <section class="envoi_mail">
-    <form [formGroup]="formGroup" (ngSubmit)="sendMail()" [ngClass]="{'lost': success}">
+    <form [formGroup]="formGroup" (ngSubmit)="sendMail()" [@switchMessage]="success ? 'lost' : 'visible'">
     <div class="group-name">
         <label for="nom">Nom: </label><br>
         <input type="text" id="nom" name="nom" [ngClass]="{'valid': submitted && nom.valid,'invalid': submitted && nom.errors}" formControlName="nom">
         <span *ngIf="submitted && nom.errors && nom.errors.required">Nom requis</span>
+        <span *ngIf="submitted && nom.errors && nom.errors.minlength">Le nom doit comporter au moins 2 caractères</span>
     </div>
     
     <div class="group-name2">
         <label for="prenom">Prénom: </label><br>
         <input type="text" id="prenom" name="prenom" [ngClass]="{'valid': submitted && prenom.valid,'invalid': submitted && prenom.errors}" formControlName="prenom">
         <span *ngIf="submitted && prenom.errors && prenom.errors.required">Prénom requis</span>
+        <span *ngIf="submitted && prenom.errors && prenom.errors.minlength">Le prénom doit comporter au moins 2 caractères</span>
     </div>
     
     <div class="group-mail">
@@ -23,11 +25,12 @@
         <label for="message">Message: </label><br>
         <textarea name="message" id="message" cols="30" rows="11" [ngClass]="{'valid': submitted && message.valid,'invalid': submitted && message.errors}" formControlName="message"></textarea><br>
         <span *ngIf="submitted && message.errors && message.errors.required">Message requis</span>
+        <span *ngIf="submitted && message.errors && message.errors.minlength">Le message doit contenir au moins 10 caractères</span>
     </div>
     
     <input type="submit" value="ENVOYER" class="btn btn-send">
 </form>
-<section [ngClass]="{'success_mail': true, 'lost': !success}">
+<section class="success_mail" [@switchMessage2]="success ? 'visible' : 'lost'">
     <i class="icon icon-valide"></i>
     <span class="message_success">Votre message a bien été envoyé !</span>
 </section>
