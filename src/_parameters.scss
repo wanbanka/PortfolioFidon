@@ -18,7 +18,11 @@ $smartphone: 768px;
 
 %position_section{
     display: grid;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -28,12 +32,16 @@ $smartphone: 768px;
             padding: 1rem;
             font-family: "Oxanium";
             font-size: 1.2rem;
+            -webkit-transition-duration: 0.5s;
             transition-duration: 0.5s;
+            -webkit-transition-property: border;
             transition-property: border;
 }
 
 %focus_formulaire{
+                -webkit-transition-duration: 0.5s;
                 transition-duration: 0.5s;
+                -webkit-transition-property: border;
                 transition-property: border;
                 border-width: 0.0625rem; 
                 border-style: solid;
@@ -44,12 +52,14 @@ $smartphone: 768px;
         width: 100%;
         height: 0.5rem;
         opacity: 1;
+    -webkit-animation: none;
     animation: none;
 }
 
 @mixin effectSurvol($couleur1, $couleur2){
     background-color: $couleur1;
     color: $couleur2;
+    -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
 }
 

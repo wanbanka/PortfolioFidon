@@ -10,11 +10,17 @@
 }
 
 *{
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 :root{
     --bg-page: #ffffff;
+}
+
+::-moz-selection{
+    background-color: #000000;
+    color: #ffffff;
 }
 
 ::selection{
@@ -35,6 +41,8 @@ body{
 nav{
     position: fixed;
     display: grid;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     grid-area: nav;
     width: 100%;
@@ -51,7 +59,11 @@ nav{
         outline: inherit;
         position: fixed;
         display: grid;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         grid-template-areas: "icone texte";
         grid-template-columns: 10% 40%;
@@ -71,7 +83,9 @@ nav{
             font-family: 'Oxanium';
             font-size: 1.3rem;
             opacity: 1;
+            -webkit-transition-duration: 0.5s;
             transition-duration: 0.5s;
+            -webkit-transition-property: opacity;
             transition-property: opacity;
         }
         
@@ -82,23 +96,30 @@ nav{
             &.close{
                 span{
                     
+                    -webkit-transition-duration: 0.5s;
+                    
                     transition-duration: 0.5s;
                     
                     &:nth-child(2){
                         display: none;
                         opacity: 0;
+                        -webkit-transition-property: opacity;
                         transition-property: opacity;
                     }
                     
                     &:first-child{
                         width: 5rem;
+                        -webkit-transform-origin: 0 0;
                         transform-origin: 0 0;
+                        -webkit-transform: rotateZ(45deg);
                         transform: rotateZ(45deg);
                     }
                     
                     &:last-child{
                         width: 5rem;
+                        -webkit-transform-origin: 0 0;
                         transform-origin: 0 0;
+                        -webkit-transform: rotateZ(-45deg) translateX(-40%) translateY(35%);
                         transform: rotateZ(-45deg) translateX(-40%) translateY(35%);
                     }
                 }
@@ -107,6 +128,8 @@ nav{
             &.fleche{
                     
                     span{
+                        
+                        -webkit-transition-duration: 0.5s;
                         
                         transition-duration: 0.5s;
                         
@@ -117,19 +140,24 @@ nav{
                     
                     &:first-child{
                         width: 3.5rem;
+                        -webkit-transform-origin: 0 0;
                         transform-origin: 0 0;
+                        -webkit-transform: rotateZ(130deg) translateX(-30%) translateY(-140%);
                         transform: rotateZ(130deg) translateX(-30%) translateY(-140%);
                     }
                     
                     &:last-child{
                         width: 3.5rem;
+                        -webkit-transform-origin: 0 0;
                         transform-origin: 0 0;
+                        -webkit-transform: rotateZ(35deg) translateX(-27%) translateY(-60%);
                         transform: rotateZ(35deg) translateX(-27%) translateY(-60%);
                     }
                     }
                 }
             
             span{
+                -webkit-transition-duration: 0.5s;
                 transition-duration: 0.5s;
                 opacity: 1;
                 display: block;
@@ -143,6 +171,7 @@ nav{
         
         .icon-back{
             content: url(pictures/fleche_back.png);
+            -webkit-transform: rotateZ(-180deg);
             transform: rotateZ(-180deg);
             width: 6rem;
             height: 6rem;
@@ -153,7 +182,9 @@ nav{
     .lost{
         display: none;
         opacity: 0;
+        -webkit-transition-property: opacity;
         transition-property: opacity;
+        -webkit-transition-duration: 0.5s;
         transition-duration: 0.5s;
     }
     
@@ -172,6 +203,7 @@ nav{
     color: #000000;
     font-size: 1.25rem;
     border-radius: 1rem;
+    -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
     padding-top: 1.3125rem;
     padding-bottom: 1.3125rem;

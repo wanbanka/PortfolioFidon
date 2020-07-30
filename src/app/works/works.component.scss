@@ -29,12 +29,16 @@
             display: block;
             padding: 1rem 1rem 0.5rem 1rem;
             border: none;
+            -webkit-transition-duration: 0.5s;
             transition-duration: 0.5s;
+            -webkit-transition-property: border;
             transition-property: border;
             
             &:hover, &:active, &:focus{
                 border: 0.5rem solid #ffffff;
+                -webkit-transition-duration: 0.5s;
                 transition-duration: 0.5s;
+                -webkit-transition-property: border;
                 transition-property: border;
             }
         }
