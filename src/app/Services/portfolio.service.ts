@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {Subject, Observable} from 'rxjs';
 
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -103,6 +103,11 @@ getWorks(){
     this.getDonnees('oeuvres');
 }
 
+
+getWorksLength(){
+    return this.works.length;
+}
+
 /**
 
 * Renvoie un tableau contenant toutes les valeurs entre le premier et le deuxième nombre
@@ -112,9 +117,6 @@ getWorks(){
 * @throws Exception
 
 */
-getWorksLength(){
-    return this.works.length;
-}
 
 range(start : number, end : number){
     
@@ -132,10 +134,14 @@ range(start : number, end : number){
 
 
 private getDonnees(option : string){
+
+    let headers = new HttpHeaders();
+
+    headers.append('Access-Control-Allow-Origin', '*');
     
-    let params = new HttpParams().set('api_key', 'e4530cf5701e631bbd5837b70fba9f9294f44f122c4a961b1577c9ed7176e633d351958ad03993b3a2a38dfae9f4c18f0b099ed8720058ea9ea8437f51d70945').set('option', option);
-        
-        this.http.get<any[]>('https://theosenilh.fr/api_fidon/recherche_donnees.php', {params}).subscribe((donnees) => {
+    let url = 'http://localhost/BackOfficeFidon/api/api' + option;
+    
+        this.http.get<any[]>(url, {headers: headers}).subscribe((donnees) => {
             
             switch(option){
                 case 'sections':

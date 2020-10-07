@@ -1,7 +1,7 @@
 <section class="biography">
     <section *ngFor="let section of sections">
-         <img src="{{section.photo_section}}" alt="Illustration" title="Illustration">
-        <div [innerHTML]="section.texte_section | hTML"></div>
+         <img src="{{section.photo}}" alt="Illustration" title="Illustration">
+        <div [innerHTML]="section.texte| hTML"></div>
     </section>
 </section>
 
