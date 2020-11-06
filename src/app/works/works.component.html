@@ -12,8 +12,8 @@
     <p *ngIf=" displayOeuvres.length === 0">Pas d'oeuvres<br><span *ngIf="anneeOeuvre === annees[annees.length - 1]">pour le moment</span></p>
     
     <div class="oeuvre" *ngFor="let oeuvre of displayOeuvres">
-        <a [routerLink]="[oeuvre.id_oeuvre]">
-            <img src="{{oeuvre.photo_oeuvre}}" width="100%" height="auto" alt="{{oeuvre.nom_oeuvre}}" title="{{oeuvre.nom_oeuvre}}">
+        <a [routerLink]="[oeuvre.id]">
+            <img src="{{oeuvre.photo}}" width="100%" height="auto" alt="{{oeuvre.nom}}" title="{{oeuvre.nom}}">
         </a>
     </div>
     

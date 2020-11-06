@@ -37,8 +37,12 @@ export class WorksComponent implements OnInit, OnDestroy {
          this.oeuvres = oeuvres;
           
           if(this.oeuvres.length > 0){
+
+            let annee_debut = parseInt(this.oeuvres[0].annee);
+
+            let annee_fin = parseInt(this.oeuvres[this.oeuvres.length - 1].annee);
            
-          this.annees = this.portfolio.range(parseInt(this.oeuvres[this.oeuvres.length - 1].annee_oeuvre), parseInt(this.oeuvres[0].annee_oeuvre));
+          this.annees = this.portfolio.range(annee_debut, annee_fin);
               
               this.anneeOeuvre = this.annees[this.annees.length - 1];
               
@@ -52,7 +56,7 @@ export class WorksComponent implements OnInit, OnDestroy {
     
     filterWorks(){
         
-        this.displayOeuvres = this.oeuvres.filter((oeuvre) => oeuvre.annee_oeuvre == this.anneeOeuvre);
+        this.displayOeuvres = this.oeuvres.filter((oeuvre) => oeuvre.annee == this.anneeOeuvre);
     }
     
     

@@ -65,9 +65,9 @@ export class IntroductionComponent implements OnInit, OnDestroy {
         
         if(this.exhibitions.length != 0){
             
-            let anneeDebut = new Date(this.exhibitions[this.exhibitions.length - 1].date_debut_exposition).getFullYear();
+            let anneeDebut = new Date(this.exhibitions[this.exhibitions.length - 1].date_debut).getFullYear();
             
-            let anneeFin = new Date(this.exhibitions[0].date_fin_exposition).getFullYear();
+            let anneeFin = new Date(this.exhibitions[0].date_fin).getFullYear();
             
             this.annees = this.portfolio.range(anneeDebut, anneeFin);
             
@@ -80,14 +80,14 @@ export class IntroductionComponent implements OnInit, OnDestroy {
     
     filtreExhibitions(annee : number){
         
-        this.displayExhibitions = this.exhibitions.filter((exhibition) => exhibition.date_debut_exposition.includes(annee));
+        this.displayExhibitions = this.exhibitions.filter((exhibition) => exhibition.date_debut.includes(annee));
         
         let egalDateIndex = this.displayExhibitions.findIndex((exhibition) => {
-           return exhibition.date_debut_exposition === exhibition.date_fin_exposition;
+           return exhibition.date_debut === exhibition.date_fin;
         });
         
         if(egalDateIndex != -1){
-            this.displayExhibitions[egalDateIndex].date_fin_exposition = '';
+            this.displayExhibitions[egalDateIndex].date_fin = '';
         }
         
         console.table(this.displayExhibitions);

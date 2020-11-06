@@ -171,10 +171,12 @@ private getDonnees(option : string){
 */
 
 getWorkById(id: number){
+
+    let idOeuvre = id;
     
-    let params = new HttpParams().set('api_key', 'e4530cf5701e631bbd5837b70fba9f9294f44f122c4a961b1577c9ed7176e633d351958ad03993b3a2a38dfae9f4c18f0b099ed8720058ea9ea8437f51d70945').set('oeuvre_id', ''+ id +'');
+    let params = new HttpParams().set('apioeuvre', '2');
     
-    this.http.get<any[]>('https://theosenilh.fr/api_fidon/recherche_donnees.php', {params}).subscribe((donnees) => {
+    this.http.get<any[]>('http://127.0.0.1:8000/api/apioeuvres', {params}).subscribe((donnees) => {
             this.putWorks(donnees);
                        },
                     (error) => {

@@ -16,9 +16,9 @@ export class OeuvreResolver implements Resolve<any> {
     
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
     
-    let id = route.paramMap.get('id');
+    let id = parseInt(route.paramMap.get('id'));
     
-    let longueur: number;
+    
     
     console.log(id);
     
@@ -30,7 +30,7 @@ export class OeuvreResolver implements Resolve<any> {
     
     console.log(oeuvre.length);
     
-    longueur = oeuvre.length;
+    
     
     if(oeuvre.length === 0){
         this.router.navigate(['/not-found']);
