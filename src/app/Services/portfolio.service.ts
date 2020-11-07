@@ -139,9 +139,18 @@ private getDonnees(option : string){
 
     headers.append('Access-Control-Allow-Origin', '*');
     
+
     let url = 'http://localhost/BackOfficeFidon/api/api' + option;
     
         this.http.get<any[]>(url, {headers: headers}).subscribe((donnees) => {
+
+    let url = 'http://127.0.0.1:8000/api/api' + option;
+
+    let params = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+    params.set('Content-Type', 'application/json; charset=utf-8');
+        
+        this.http.get<any[]>(url, {headers: params}).subscribe((donnees) => {
+
             
             switch(option){
                 case 'sections':
@@ -159,10 +168,9 @@ private getDonnees(option : string){
                        },
                     (error) => {
             console.log(error);
-        }
-                        
-                        );
+        });
     
+});
 }
 
 /**
@@ -174,11 +182,12 @@ private getDonnees(option : string){
 */
 
 getWorkById(id: number){
+
+    let idOeuvre = '' + id;
     
-    let params = new HttpParams().set('api_key', 'e4530cf5701e631bbd5837b70fba9f9294f44f122c4a961b1577c9ed7176e633d351958ad03993b3a2a38dfae9f4c18f0b099ed8720058ea9ea8437f51d70945').set('oeuvre_id', ''+ id +'');
-    
-    this.http.get<any[]>('https://theosenilh.fr/api_fidon/recherche_donnees.php', {params}).subscribe((donnees) => {
-            this.putWorks(donnees);
+    this.http.get<any[]>('http://127.0.0.1:8000/api/apioeuvres/' + idOeuvre).subscribe((donnees) => {
+        console.table(donnees);
+            this.putWorks([donnees]);
                        },
                     (error) => {
             console.log(error);
@@ -206,8 +215,8 @@ envoiMail(donnees: any[]): Promise<any>{
     
     return new Promise((resolve, reject) => {
        
-       this.http.post('https://theosenilh.fr/api_fidon/envoi_mail.php', {params}, {responseType: 'text'}).subscribe(() => {
-           resolve();
+       this.http.post('http://127.0.0.1:8000/api/sendmail', {params}, {responseType: 'text'}).subscribe((response) => {
+           resolve(response);
        },
         (error) => {
            reject(error);

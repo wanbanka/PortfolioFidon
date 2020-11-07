@@ -2,6 +2,8 @@
     <section *ngFor="let section of sections">
          <img src="{{section.photo}}" alt="Illustration" title="Illustration">
         <div [innerHTML]="section.texte| hTML"></div>
+         <img src="http://127.0.0.1:8000/{{section.photo}}" alt="Illustration" title="Illustration">
+        <div [innerHTML]="section.texte"></div>
     </section>
 </section>
 
@@ -19,7 +21,7 @@
    <div class="timeline-exhibitions">
       
        <ng-timeline-vertical *ngIf="displayExhibitions.length > 0">
-        <ng-timeline-item *ngFor="let exhibition of displayExhibitions" title="{{exhibition.date_debut_exposition | date:'d MMMM y'}} {{exhibition.date_fin_exposition ? '-' : ''}} {{exhibition.date_fin_exposition | date:'d MMMM y'}}" content="{{exhibition.description_exposition}}"></ng-timeline-item>
+        <ng-timeline-item *ngFor="let exhibition of displayExhibitions" title="{{exhibition.date_debut | date:'d MMMM y'}} {{exhibition.date_fin ? '-' : ''}} {{exhibition.date_fin | date:'d MMMM y'}}" content="{{exhibition.description}}"></ng-timeline-item>
     </ng-timeline-vertical>
     <p *ngIf="displayExhibitions.length === 0">Pas d'expositions <span *ngIf="index === annees.length - 1">pour le moment</span></p>
    </div>

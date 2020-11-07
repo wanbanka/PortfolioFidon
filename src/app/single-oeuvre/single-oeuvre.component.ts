@@ -29,7 +29,9 @@ export class SingleOeuvreComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
       
-      this.id = this.route.snapshot.params['id'];
+      this.id = parseInt(this.route.snapshot.params['id']);
+
+      console.log(this.id);
       
       this.portfolio.getWorkById(+this.id);
       

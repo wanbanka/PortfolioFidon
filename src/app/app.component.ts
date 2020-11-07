@@ -35,7 +35,7 @@ start: any;
 
 lost: boolean = false;
     
-listePages: string[] = ['', 'home', 'introduction', 'oeuvres', 'contact'];
+listePages: string[] = ['', 'home', 'presentation', 'oeuvres', 'contact'];
     
     startPage(){
         
