@@ -102,6 +102,8 @@ getExhibitions(){
 getWorks(){
     this.getDonnees('oeuvres');
 }
+
+
 getWorksLength(){
     return this.works.length;
 }
@@ -172,12 +174,11 @@ private getDonnees(option : string){
 
 getWorkById(id: number){
 
-    let idOeuvre = id;
+    let idOeuvre = '' + id;
     
-    let params = new HttpParams().set('apioeuvre', '2');
-    
-    this.http.get<any[]>('http://127.0.0.1:8000/api/apioeuvres', {params}).subscribe((donnees) => {
-            this.putWorks(donnees);
+    this.http.get<any[]>('http://127.0.0.1:8000/api/apioeuvres/' + idOeuvre).subscribe((donnees) => {
+        console.table(donnees);
+            this.putWorks([donnees]);
                        },
                     (error) => {
             console.log(error);
@@ -205,8 +206,8 @@ envoiMail(donnees: any[]): Promise<any>{
     
     return new Promise((resolve, reject) => {
        
-       this.http.post('https://theosenilh.fr/api_fidon/envoi_mail.php', {params}, {responseType: 'text'}).subscribe(() => {
-           resolve();
+       this.http.post('http://127.0.0.1:8000/api/sendmail', {params}, {responseType: 'text'}).subscribe((response) => {
+           resolve(response);
        },
         (error) => {
            reject(error);

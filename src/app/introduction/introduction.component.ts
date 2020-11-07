@@ -52,7 +52,9 @@ export class IntroductionComponent implements OnInit, OnDestroy {
       this.portfolio.getExhibitions();
       
       this.exhibitionSubscription = this.portfolio.exhibitionsSubject.subscribe((exhibitions: any[]) => {
-          this.exhibitions = exhibitions;
+          this.exhibitions = exhibitions.sort((a, b) => {
+              return a.date_debut - b.date_debut;
+          });
           console.table(this.exhibitions);
           this.remplirAnnees();
       });

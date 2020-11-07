@@ -121,8 +121,8 @@ export class ContactComponent implements OnInit, OnDestroy {
             return;
         }
         
-        this.portfolio.envoiMail(this.formGroup.value).then(() => {
-           console.log('Envoyé'); 
+        this.portfolio.envoiMail(this.formGroup.value).then((response) => {
+           console.log(response); 
             this.success = true;
             
             setTimeout(() => {

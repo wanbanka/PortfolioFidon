@@ -1,6 +1,6 @@
 <section class="biography">
     <section *ngFor="let section of sections">
-         <img src="{{section.photo}}" alt="Illustration" title="Illustration">
+         <img src="http://127.0.0.1:8000/{{section.photo}}" alt="Illustration" title="Illustration">
         <div [innerHTML]="section.texte"></div>
     </section>
 </section>

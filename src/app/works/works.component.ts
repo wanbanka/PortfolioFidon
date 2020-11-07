@@ -38,6 +38,12 @@ export class WorksComponent implements OnInit, OnDestroy {
           
           if(this.oeuvres.length > 0){
 
+            this.oeuvres = oeuvres.sort((a: any, b: any) => {
+              return a.annee - b.annee;
+            });
+
+            console.table(this.oeuvres);
+
             let annee_debut = parseInt(this.oeuvres[0].annee);
 
             let annee_fin = parseInt(this.oeuvres[this.oeuvres.length - 1].annee);
