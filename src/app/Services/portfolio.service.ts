@@ -138,11 +138,7 @@ private getDonnees(option : string){
     let headers = new HttpHeaders();
 
     headers.append('Access-Control-Allow-Origin', '*');
-    
 
-    let url = 'http://localhost/BackOfficeFidon/api/api' + option;
-    
-        this.http.get<any[]>(url, {headers: headers}).subscribe((donnees) => {
 
     let url = 'http://127.0.0.1:8000/api/api' + option;
 
@@ -169,8 +165,6 @@ private getDonnees(option : string){
                     (error) => {
             console.log(error);
         });
-    
-});
 }
 
 /**
@@ -212,6 +206,8 @@ envoiMail(donnees: any[]): Promise<any>{
     let message = encodeURI(donnees['message']);
     
     let params = new HttpParams().set('nom', nom).set('prenom', prenom).set('mail', donnees['mail']).set('message', message);
+
+    console.table(params);
     
     return new Promise((resolve, reject) => {
        
