@@ -207,11 +207,13 @@ envoiMail(donnees: any[]): Promise<any>{
     
     let params = new HttpParams().set('nom', nom).set('prenom', prenom).set('mail', donnees['mail']).set('message', message);
 
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
     console.table(params);
     
     return new Promise((resolve, reject) => {
        
-       this.http.post('http://127.0.0.1:8000/api/sendmail', {params}, {responseType: 'text'}).subscribe((response) => {
+       this.http.post('http://127.0.0.1:8000/api/sendmail', {params, headers: headers}, {responseType: 'text'}).subscribe((response) => {
            resolve(response);
        },
         (error) => {
