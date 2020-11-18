@@ -116,6 +116,20 @@ export class ContactComponent implements OnInit, OnDestroy {
     
     sendMail(){
         this.submitted = true;
+
+        /**
+         * @source https://stackblitz.com/edit/angular-form-trim
+         */
+
+         Object.keys(this.formGroup.controls).forEach((key) => {
+
+            this.formGroup.get(key).setValue(this.formGroup.get(key).value.trim());
+
+         });
+
+         /**
+          * Fin de la source
+          */
         
         if(this.formGroup.invalid){
             return;
