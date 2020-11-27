@@ -17,7 +17,7 @@ export class SingleOeuvreComponent implements OnInit, OnDestroy {
     
     id: number;
     
-    oeuvre: JSON;
+    oeuvre: any;
     
     oeuvreSubscription: Subscription;
 

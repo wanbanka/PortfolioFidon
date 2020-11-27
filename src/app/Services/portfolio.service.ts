@@ -140,7 +140,7 @@ private getDonnees(option : string){
     headers.append('Access-Control-Allow-Origin', '*');
 
 
-    let url = 'http://127.0.0.1:8000/api/api' + option;
+    let url = 'http://fierce-shore-44576.herokuapp.com/api/api' + option;
 
     let params = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
     params.set('Content-Type', 'application/json; charset=utf-8');
@@ -179,7 +179,7 @@ getWorkById(id: number){
 
     let idOeuvre = '' + id;
     
-    this.http.get<any[]>('http://127.0.0.1:8000/api/apioeuvres/' + idOeuvre).subscribe((donnees) => {
+    this.http.get<any[]>('http://fierce-shore-44576.herokuapp.com/api/apioeuvres/' + idOeuvre).subscribe((donnees) => {
         console.table(donnees);
             this.putWorks([donnees]);
                        },
@@ -213,7 +213,7 @@ envoiMail(donnees: any[]): Promise<any>{
     
     return new Promise((resolve, reject) => {
        
-       this.http.post('http://127.0.0.1:8000/api/sendmail', {params, headers: headers}, {responseType: 'text'}).subscribe((response) => {
+       this.http.post('http://fierce-shore-44576.herokuapp.com/api/sendmail', {params, headers: headers}, {responseType: 'text'}).subscribe((response) => {
            resolve(response);
        },
         (error) => {
