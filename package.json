@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
     "dart-sass": "^1.25.0",
+    "express": "^4.6.13",
     "konva": "^7.2.0",
     "ng-loading-spinner": "^2.0.0",
     "ng-timeline-vertical": "0.0.2",
