@@ -1,8 +1,8 @@
-@use '../../parameters' as p;
+@import '../../parameters';
 
 .affiche_oeuvre {
     @extend %position_section;
-    margin-top: p.$hauteurNav + 4;
+    margin-top: $hauteurNav + 4;
     
     width: 100%;
     
@@ -19,7 +19,7 @@
     }
 }
 
-@include p.smartphone{
+@include smartphone{
     
     .affiche_oeuvre{
         

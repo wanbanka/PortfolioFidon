@@ -1,7 +1,7 @@
-@use '../parameters' as p;
+@import '../parameters';
 
 router-outlet{
     position: relative;
-    z-index: p.$zindex;
+    z-index: $zindex;
     grid-area: content;
 }

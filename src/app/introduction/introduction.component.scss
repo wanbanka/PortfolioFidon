@@ -1,4 +1,4 @@
-@use '../../parameters' as p;
+@import '../../parameters';
 
 @mixin modif_tablet_smartphone{
     .biography{
@@ -6,7 +6,7 @@
         display: grid;
         grid-row-gap: 15%;
         margin: 0 auto;
-        margin-top: p.$hauteurNav + 6;
+        margin-top: $hauteurNav + 6;
         
         section{
             display: grid;
@@ -47,7 +47,7 @@
 .biography{
     @extend %position_section;
     grid-row-gap: 15%;
-    margin-top: p.$hauteurNav + 6;
+    margin-top: $hauteurNav + 6;
     
     section{
         display: grid;
@@ -88,10 +88,10 @@
 
 .exhibitions{
     @extend %position_section;
-    margin-top: p.$hauteurNav + 14;
+    margin-top: $hauteurNav + 14;
     
     .title {
-        font-size: p.$tailleLien;
+        font-size: $tailleLien;
         margin: 0 auto;
     }
     
@@ -117,7 +117,7 @@
             text-align: center;
             background-color: #ffffff;
             padding: 1.25rem 1.875rem 1.25rem 1.875rem;
-            font-size: p.$tailleLien - 1;
+            font-size: $tailleLien - 1;
         }
         
         .prev{
@@ -157,25 +157,25 @@
     
 }
 
-@include p.miniDesktop{
+@include miniDesktop{
     .biography{
         width: 85%;
         margin: 0 auto;
-        margin-top: p.$hauteurNav + 6;
+        margin-top: $hauteurNav + 6;
     }
 }
 
-@include p.tablet{
+@include tablet{
     @include modif_tablet_smartphone;
 }
 
-@include p.smartphone{
+@include smartphone{
     @include modif_tablet_smartphone;
     
     .exhibitions{
         
         .title{
-            font-size: p.$tailleLien - 0.8;
+            font-size: $tailleLien - 0.8;
         }
         
         .select_year{

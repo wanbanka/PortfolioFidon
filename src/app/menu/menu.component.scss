@@ -1,4 +1,4 @@
-@use '../../parameters' as p;
+@import '../../parameters';
 
 @keyframes slideWoop{
     from{
@@ -84,9 +84,9 @@ ul {
         a{
             text-decoration: none;
             color: #000000;
-            font-size: p.$tailleLien;
+            font-size: $tailleLien;
             
-            @each $categorie, $lien in p.$icones{
+            @each $categorie, $lien in $icones{
             .icon-#{$categorie}::before{
                 content: url(#{$lien});
             }
@@ -119,15 +119,15 @@ ul {
     }
 }
 
-@include p.smartphone{
+@include smartphone{
 
     ul{
         li{
             margin-top: 10%;
             a{
-                font-size: p.$tailleLien - 1;
+                font-size: $tailleLien - 1;
                 
-                @each $categorie, $lien in p.$icones{
+                @each $categorie, $lien in $icones{
             .icon-#{$categorie}::before{
                 background-image: url(#{$lien});
                 background-repeat: no-repeat;

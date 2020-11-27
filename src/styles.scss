@@ -1,4 +1,4 @@
-@use 'parameters' as p;
+@import 'parameters';
 
 @font-face{
     font-family: 'Oxanium';
@@ -46,8 +46,8 @@ nav{
     align-items: center;
     grid-area: nav;
     width: 100%;
-    height: p.$hauteurNav;
-    z-index: p.$zindexMenu;
+    height: $hauteurNav;
+    z-index: $zindexMenu;
     background-color: var(--bg-page);
     top: 0;
     left: 0;
@@ -68,7 +68,7 @@ nav{
         grid-template-areas: "icone texte";
         grid-template-columns: 10% 40%;
         left: 1%;
-        z-index: p.$zindexMenu;
+        z-index: $zindexMenu;
         
         &:hover{
             cursor: pointer;
@@ -210,8 +210,8 @@ nav{
 }
 
 i.icon{
-    width: p.$tailleIcone;
-    height: p.$tailleIcone;
+    width: $tailleIcone;
+    height: $tailleIcone;
     vertical-align: middle;
 }
 
@@ -262,7 +262,7 @@ app-contact{
     height: 75vh;
 }
 
-@include p.miniDesktop{
+@include miniDesktop{
     
     nav{
         
@@ -281,7 +281,7 @@ app-contact{
     
 }
 
-@include p.tablet{
+@include tablet{
     
     nav{
         
@@ -302,7 +302,7 @@ app-contact{
     
 }
 
-@include p.smartphone{
+@include smartphone{
     
     nav{
         
@@ -318,8 +318,8 @@ app-contact{
         }
             
             i{
-                width: p.$tailleIcone - 2;
-                height: p.$tailleIcone - 2;
+                width: $tailleIcone - 2;
+                height: $tailleIcone - 2;
                 
             svg{
                 border: red solid 1px;
@@ -342,7 +342,7 @@ app-contact{
     }
     
     app-home{
-    margin-top: p.$hauteurNav - 10;
+    margin-top: $hauteurNav - 10;
     }
     
     app-contact{

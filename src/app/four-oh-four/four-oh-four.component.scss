@@ -1,4 +1,4 @@
-@use '../../parameters' as p;
+@import '../../parameters';
 
 @font-face{
     font-family: 'OceanRush';
@@ -26,7 +26,7 @@
 
 .erreur_404{
     @extend %position_section;
-    margin-top: p.$hauteurNav - 10;
+    margin-top: $hauteurNav - 10;
     text-align: center;
     
     height: 50vh;
@@ -34,7 +34,7 @@
     h1{
         font-size: 6rem;
         font-family: 'OceanRush';
-        margin-top: p.$hauteurNav + 3;
+        margin-top: $hauteurNav + 3;
         position: relative;
         z-index: 1;
         
@@ -83,22 +83,22 @@
         font-size: 2rem;
         
         &:hover, &:active, &:focus{
-            @include p.effectSurvol(#000000, #ffffff);
+            @include effectSurvol(#000000, #ffffff);
         }
     }
 }
 
-@include p.smartphone{
+@include smartphone{
     .erreur_404{
         
         h1{
             font-size: 3rem;
-            margin-top: p.$hauteurNav + 7;
+            margin-top: $hauteurNav + 7;
         }
         
         p, .btn-back{
             font-size: 1rem;
-            margin-top: p.$hauteurNav + 8;
+            margin-top: $hauteurNav + 8;
         }
     }
 }

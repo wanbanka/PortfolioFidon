@@ -1,4 +1,4 @@
-@use '../../parameters' as p;
+@import '../../parameters';
 
 header{
     text-align: center;
@@ -11,7 +11,7 @@ header{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin-top: p.$hauteurNav;
+    margin-top: $hauteurNav;
      grid-template-rows: 50% 30% 20%;
         
     h1{
@@ -33,12 +33,12 @@ header{
     width: 80%;
     
     &:hover, &:active, &:focus{
-        @include p.effectSurvol(#000000, #f28e57);
+        @include effectSurvol(#000000, #f28e57);
     }
     
 }
 
-@include p.smartphone{
+@include smartphone{
     
     header{
         

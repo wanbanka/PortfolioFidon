@@ -1,4 +1,4 @@
-@use '../../parameters' as p;
+@import '../../parameters';
 
 nav{
     position: fixed;
@@ -6,8 +6,8 @@ nav{
     align-items: center;
     grid-area: nav;
     width: 100%;
-    height: p.$hauteurNav;
-    z-index: p.$zindexMenu;
+    height: $hauteurNav;
+    z-index: $zindexMenu;
     background-color: var(--bg-page);
     top: 0;
     left: 0;
@@ -24,7 +24,7 @@ nav{
         grid-template-areas: "icone texte";
         grid-template-columns: 10% 40%;
         left: 1%;
-        z-index: p.$zindexMenu;
+        z-index: $zindexMenu;
         
         &:hover{
             cursor: pointer;
@@ -126,7 +126,7 @@ nav{
     }
 }
 
-@include p.miniDesktop{
+@include miniDesktop{
     
     nav{
         
@@ -145,7 +145,7 @@ nav{
     
 }
 
-@include p.tablet{
+@include tablet{
     
     nav{
         
@@ -166,7 +166,7 @@ nav{
     
 }
 
-@include p.smartphone{
+@include smartphone{
     
     nav{
         
@@ -182,8 +182,8 @@ nav{
         }
             
             i{
-                width: p.$tailleIcone - 2;
-                height: p.$tailleIcone - 2;
+                width: $tailleIcone - 2;
+                height: $tailleIcone - 2;
             }
         }
         

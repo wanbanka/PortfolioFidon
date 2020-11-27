@@ -1,4 +1,4 @@
-@use '../../parameters' as p;
+@import '../../parameters';
 
 .envoi_mail{
     
@@ -49,13 +49,13 @@
             border-color: #000000;
             background-color: #ffffff;
             font-family: "Oxanium";
-            font-size: p.$tailleLien - 0.5;
+            font-size: $tailleLien - 0.5;
             padding-top: 1rem;
             padding-bottom: 1rem;
-            margin-top: -(p.$hauteurNav) + 3;
+            margin-top: -($hauteurNav) + 3;
             
             &:hover, &:active, &:focus{
-                @include p.effectSurvol(#000000, #ffffff);
+                @include effectSurvol(#000000, #ffffff);
                 cursor: pointer;
             }
         }
@@ -70,7 +70,7 @@
 }
     .success_mail{
         @extend %position_section;
-        margin-top: p.$hauteurNav + 4;
+        margin-top: $hauteurNav + 4;
         height: 50vh;
         grid-area: ensemble;
         
@@ -87,7 +87,7 @@
         
         .message_success{
             color: #6e9044;
-            font-size: p.$tailleLien - 0.5;
+            font-size: $tailleLien - 0.5;
             grid-area: message;
         }
     }
@@ -95,7 +95,7 @@
 
 .networks {
     @extend %position_section;
-    margin-top: p.$hauteurNav + 20;
+    margin-top: $hauteurNav + 20;
     width: 100%;
     height: 10vh;
     
@@ -129,7 +129,7 @@
     }
 }
 
-@include p.tablet{
+@include tablet{
     
     .envoi_mail{
         form{
@@ -143,7 +143,7 @@
     
 }
 
-@include p.smartphone{
+@include smartphone{
     
     .envoi_mail{
         
@@ -199,7 +199,7 @@
         &[type="submit"].btn-send{
             grid-row: 5;
             grid-column: 1;
-            font-size: p.$tailleLien - 1.5;
+            font-size: $tailleLien - 1.5;
             margin-top: 0;
         }
     }
@@ -224,7 +224,7 @@
         }
         
         .message_success{
-            font-size: p.$tailleLien - 2;
+            font-size: $tailleLien - 2;
         }
     }
         
