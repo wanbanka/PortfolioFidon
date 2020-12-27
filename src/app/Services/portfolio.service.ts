@@ -135,10 +135,6 @@ range(start : number, end : number){
 
 private getDonnees(option : string){
 
-    let headers = new HttpHeaders();
-
-    headers.append('Access-Control-Allow-Origin', '*');
-
 
     let url = 'https://backofficefidon.frb.io/api/api' + option;
 
