@@ -140,7 +140,7 @@ private getDonnees(option : string){
     headers.append('Access-Control-Allow-Origin', '*');
 
 
-    let url = 'https://fierce-shore-44576.herokuapp.com/api/api' + option;
+    let url = 'https://backofficefidon.frb.io/api/api' + option;
 
     let params = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
     params.set('Content-Type', 'application/json; charset=utf-8');
@@ -179,7 +179,7 @@ getWorkById(id: number){
 
     let idOeuvre = '' + id;
     
-    this.http.get<any[]>('https://fierce-shore-44576.herokuapp.com/api/apioeuvres/' + idOeuvre).subscribe((donnees) => {
+    this.http.get<any[]>('https://backofficefidon.frb.io/api/apioeuvres/' + idOeuvre).subscribe((donnees) => {
         console.table(donnees);
             this.putWorks([donnees]);
                        },
@@ -213,7 +213,7 @@ envoiMail(donnees: any[]): Promise<any>{
     
     return new Promise((resolve, reject) => {
        
-       this.http.post('https://fierce-shore-44576.herokuapp.com/api/sendmail', {params, headers: headers}, {responseType: 'text'}).subscribe((response) => {
+       this.http.post('https://backofficefidon.frb.io/api/sendmail', {params, headers: headers}, {responseType: 'text'}).subscribe((response) => {
            resolve(response);
        },
         (error) => {
