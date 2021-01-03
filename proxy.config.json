@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "https://fierce-shore-44576.herokuapp.com/",
+        "target": "https://backofficefidon.frb.io/",
         "secure": true,
         "logLevel": "debug",
         "changeOrigin": true
