@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/dist/PortfolioFidon'));
 app.get('/*', (req, res) => {
 
 globalTunnel.initialize({
-    host: "https://backofficefidon.frb.io/",
+    host: "https://172.16.3.33/",
     port: 443
 });
 
