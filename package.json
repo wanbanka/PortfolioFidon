@@ -32,6 +32,7 @@
     "ng-loading-spinner": "^2.0.0",
     "ng-timeline-vertical": "0.0.2",
     "ng2-konva": "^6.0.0",
+    "node-http-proxy": "^0.2.3",
     "normalize.css": "^8.0.1",
     "path": "^0.12.7",
     "rxjs": "~6.4.0",
