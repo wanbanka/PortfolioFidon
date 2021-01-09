@@ -4,7 +4,7 @@ const proxy = require('node-http-proxy');
 
 const app = express();
 
-proxy.createProxyServer({target: "https://backofficefidon.frb.io/"}).listen(8080);
+proxy.createProxyServer({target: "https://backofficefidon.frb.io/"}).listen(80);
 
 
 app.use(express.static(__dirname + '/dist/PortfolioFidon'));
