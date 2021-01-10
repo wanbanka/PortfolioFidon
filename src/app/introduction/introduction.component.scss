@@ -121,28 +121,13 @@
         }
         
         .prev{
-            
-            -webkit-transform: rotateZ(180deg);
-            transform: rotateZ(180deg);
             grid-area: iconegauche;
-            
-            .icon-left::before{
-        content: url(../../pictures/fleche_choix.png);
-         width: 6rem;
-            height: 6rem;
-    }
             
         }
         
         .next{
             
         grid-area: iconedroite;
-            
-            .icon-right::before{
-        content: url(../../pictures/fleche_choix.png);
-         width: 6rem;
-            height: 6rem;
-    }
             
         }
     }
