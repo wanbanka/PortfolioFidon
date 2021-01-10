@@ -1,5 +1,25 @@
 @import '../../parameters';
 
+
+ng-timeline-vertical {
+
+  .cd-container {
+    background-color: #000000;
+  }
+
+  ng-timeline-item {
+    .cd-timeline-img {
+      background-color: #000000;
+      box-shadow: none;
+    }
+
+    .cd-timeline-content {
+      border-right-color: transparent;
+    }
+  }
+}
+
+
 @mixin modif_tablet_smartphone{
     .biography{
         
