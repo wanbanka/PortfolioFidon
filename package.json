@@ -31,6 +31,7 @@
     "global-tunnel-ng": "^2.7.1",
     "konva": "^7.2.0",
     "ng-loading-spinner": "^2.0.0",
+    "ng-timeline": "0.0.4",
     "ng-timeline-vertical": "0.0.2",
     "ng2-konva": "^6.0.0",
     "node-http-proxy": "^0.2.3",

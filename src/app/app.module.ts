@@ -7,7 +7,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {NgTimelineVerticalModule} from 'ng-timeline-vertical';
+import {NgTimelineModule} from 'ng-timeline';
 import {KonvaModule} from 'ng2-konva';
 import {NgxLoadingSpinnerModule, NgxLoadingSpinnerInterceptor} from 'ng-loading-spinner';
 
@@ -28,6 +28,7 @@ import { HTMLPipe } from './Pipes/html.pipe';
 import {registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { NavComponent } from './nav/nav.component';
+import { from } from 'rxjs';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -52,9 +53,9 @@ registerLocaleData(localeFr, 'fr');
       FormsModule,
       ReactiveFormsModule,
       HttpClientModule,
-      NgTimelineVerticalModule,
       KonvaModule,
-      NgxLoadingSpinnerModule
+      NgxLoadingSpinnerModule,
+      NgTimelineModule
   ],
   providers: [
       PortfolioService,

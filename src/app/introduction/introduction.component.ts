@@ -5,6 +5,7 @@ import {PortfolioService} from '../Services/portfolio.service';
 import {ColorsServiceService} from '../Services/colors-service.service';
 
 import {Subscription} from 'rxjs';
+import { TimelineEntryBuilder } from 'ng-timeline';
 
 @Component({
   selector: 'app-introduction',
@@ -56,6 +57,7 @@ export class IntroductionComponent implements OnInit, OnDestroy {
               return a.date_debut - b.date_debut;
           });
           console.table(this.exhibitions);
+
           this.remplirAnnees();
       });
       
@@ -91,6 +93,11 @@ export class IntroductionComponent implements OnInit, OnDestroy {
         if(egalDateIndex != -1){
             this.displayExhibitions[egalDateIndex].date_fin = '';
         }
+
+        this.displayExhibitions = this.exhibitions.map((exhibition) => {
+            return new TimelineEntryBuilder().title(exhibition.date_debut + " - " + exhibition.date_fin)
+            .body(exhibition.description).build()
+          });
         
         console.table(this.displayExhibitions);
         console.table(egalDateIndex);
