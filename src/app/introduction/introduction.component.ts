@@ -84,7 +84,7 @@ export class IntroductionComponent implements OnInit, OnDestroy {
     
     filtreExhibitions(annee : number){
         
-        this.displayExhibitions = this.exhibitions.filter((exhibition) => exhibition.date_debut.includes(annee));
+        this.displayExhibitions = this.exhibitions.filter((exhibition) => new Date(exhibition.date_debut).getFullYear() == annee);
         
         let egalDateIndex = this.displayExhibitions.findIndex((exhibition) => {
            return exhibition.date_debut === exhibition.date_fin;
