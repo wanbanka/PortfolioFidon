@@ -1,25 +1,6 @@
 @import '../../parameters';
 
 
-ng-timeline-vertical {
-
-  .cd-container {
-    background-color: #000000;
-  }
-
-  ng-timeline-item {
-    .cd-timeline-img {
-      background-color: #000000;
-      box-shadow: none;
-    }
-
-    .cd-timeline-content {
-      border-right-color: transparent;
-    }
-  }
-}
-
-
 @mixin modif_tablet_smartphone{
     .biography{
         
@@ -182,35 +163,6 @@ ng-timeline-vertical {
         .title{
             font-size: $tailleLien - 0.8;
         }
-        
-        .select_year{
-            
-            .prev{
-               .icon-left::before{
-                   background-image: url(../../pictures/fleche_choix.png);
-                background-repeat: no-repeat;
-    background-size: 4rem 4rem;
-    display: inline-block;
-    width: 4rem; 
-    height: 4rem;
-    content:"";
-                
-            } 
-            }
-            
-            .next{
-                
-                .icon-right::before{
-                   background-image: url(../../pictures/fleche_choix.png);
-                background-repeat: no-repeat;
-    background-size: 4rem 4rem;
-    display: inline-block;
-    width: 4rem; 
-    height: 4rem;
-    content:"";
-                
-            }
-            }
             
             grid-template-columns: 10% 30% 30% 30% 10%;
             
@@ -219,9 +171,4 @@ ng-timeline-vertical {
                 padding: 1rem;
         }
         }
-        
-        .timeline-exhibitions{
-            width: 100%;
-        }
     }
-}
