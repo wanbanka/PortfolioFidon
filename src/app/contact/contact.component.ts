@@ -91,10 +91,10 @@ export class ContactComponent implements OnInit, OnDestroy {
     
     initForm(){
         this.formGroup = this.formBuilder.group({
-            nom: ['', [Validators.required, Validators.minLength(2), Validators.pattern("^\S*$")]],
-            prenom: ['', [Validators.required, Validators.minLength(2), Validators.pattern("^\S*$")]],
+            nom: ['', [Validators.required, Validators.minLength(2)]],
+            prenom: ['', [Validators.required, Validators.minLength(2)]],
             mail: ['', [Validators.required, Validators.email]],
-            message: ['', [Validators.required, Validators.minLength(10), Validators.pattern("^\S*$")]]
+            message: ['', [Validators.required, Validators.minLength(10)]]
         });
     }
     
