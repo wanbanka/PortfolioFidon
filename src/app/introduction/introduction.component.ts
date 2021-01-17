@@ -100,12 +100,11 @@ export class IntroductionComponent implements OnInit, OnDestroy {
 
             return {
                 id: exhibition.id,
-                title: "" + date_debut.getDate() + "/" + 
+                date: "" + date_debut.getDate() + "/" + 
                 (date_debut.getMonth() + 1) +"/" + date_debut.getFullYear() + " - " + 
                 date_fin.getDate() + "/" + 
                 (date_fin.getMonth() + 1) +"/" + date_fin.getFullYear(),
-                content: exhibition.description,
-                icon: null
+                content: exhibition.description
             }
           });
         
