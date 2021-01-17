@@ -88,7 +88,6 @@
 }
 
 .exhibitions{
-    @extend %position_section;
     margin-top: $hauteurNav + 14;
     
     .title {

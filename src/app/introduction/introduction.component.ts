@@ -85,16 +85,8 @@ export class IntroductionComponent implements OnInit, OnDestroy {
     filtreExhibitions(annee : number){
         
         this.displayExhibitions = this.exhibitions.filter((exhibition) => new Date(exhibition.date_debut).getFullYear() == annee);
-        
-        let egalDateIndex = this.displayExhibitions.findIndex((exhibition) => {
-           return exhibition.date_debut === exhibition.date_fin;
-        });
-        
-        if(egalDateIndex != -1){
-            this.displayExhibitions[egalDateIndex].date_fin = '';
-        }
 
-        this.displayExhibitions = this.exhibitions.map((exhibition) => {
+        this.displayExhibitions = this.displayExhibitions.map((exhibition) => {
 
             var date_debut = new Date(exhibition.date_debut), date_fin = new Date(exhibition.date_fin);
 
@@ -104,12 +96,12 @@ export class IntroductionComponent implements OnInit, OnDestroy {
                 (date_debut.getMonth() + 1) +"/" + date_debut.getFullYear() + " - " + 
                 date_fin.getDate() + "/" + 
                 (date_fin.getMonth() + 1) +"/" + date_fin.getFullYear(),
-                content: exhibition.description
+                content: exhibition.description,
+                icon: '../../assets/background_icon.png'
             }
           });
         
         console.table(this.displayExhibitions);
-        console.table(egalDateIndex);
         
     }
     
