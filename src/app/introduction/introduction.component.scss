@@ -133,14 +133,6 @@
         }
     }
     
-    .timeline-exhibitions{
-        width: 30rem;
-        
-        p{
-            text-align: center;
-        }
-    }
-    
 }
 
 @include miniDesktop{
@@ -163,8 +155,6 @@
         .title{
             font-size: $tailleLien - 0.8;
         }
-            
-            grid-template-columns: 10% 30% 30% 30% 10%;
             
             .annee{
                 font-size: 1rem;

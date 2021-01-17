@@ -97,7 +97,10 @@ export class IntroductionComponent implements OnInit, OnDestroy {
         this.displayExhibitions = this.exhibitions.map((exhibition) => {
             return {
                 id: exhibition.id,
-                title: "" + exhibition.date_debut + " - " + exhibition.date_fin,
+                title: "" + exhibition.date_debut.getDate() + "/" + 
+                (exhibition.date_debut.getMonth() + 1) +"/" + exhibition.date_debut.getFullYear() + " - " + 
+                exhibition.date_fin.getDate() + "/" + 
+                (exhibition.date_fin.getMonth() + 1) +"/" + exhibition.date_fin.getFullYear(),
                 content: exhibition.description,
                 icon: null
             }
