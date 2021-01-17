@@ -17,7 +17,7 @@
  
    <div class="timeline-exhibitions">
       
-       <ng-timeline [entries]="displayExhibitions" [enableAnimation]="true" *ngIf="displayExhibitions.length > 0"></ng-timeline>
+       <ng-vertical-timeline *ngIf="displayExhibitions.length > 0" [data]="displayExhibitions"></ng-vertical-timeline>
     <p *ngIf="displayExhibitions.length === 0">Pas d'expositions <span *ngIf="index === annees.length - 1">pour le moment</span></p>
    </div>
     

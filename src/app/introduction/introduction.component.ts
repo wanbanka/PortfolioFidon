@@ -5,7 +5,7 @@ import {PortfolioService} from '../Services/portfolio.service';
 import {ColorsServiceService} from '../Services/colors-service.service';
 
 import {Subscription} from 'rxjs';
-import { TimelineEntryBuilder } from 'ng-timeline';
+
 
 @Component({
   selector: 'app-introduction',
@@ -95,8 +95,12 @@ export class IntroductionComponent implements OnInit, OnDestroy {
         }
 
         this.displayExhibitions = this.exhibitions.map((exhibition) => {
-            return new TimelineEntryBuilder().title(exhibition.date_debut + " - " + exhibition.date_fin)
-            .body(exhibition.description).build()
+            return {
+                id: exhibition.id,
+                title: "" + exhibition.date_debut + " - " + exhibition.date_fin,
+                content: exhibition.description,
+                icon: null
+            }
           });
         
         console.table(this.displayExhibitions);
