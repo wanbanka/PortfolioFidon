@@ -19,7 +19,7 @@
         <input type="email" id="mail" name="mail" [ngClass]="{'valid': submitted && mail.valid,'invalid': submitted && mail.errors}" formControlName="mail">
         <span *ngIf="submitted && mail.errors && mail.errors.required">Mail requis</span>
         <span *ngIf="submitted && mail.errors && mail.errors.email">Doit respecter le format mail</span>
-    </div><br><br>
+    </div><br><br><br>
     
     <div class="group-message">
         <label for="message">Message: </label><br>
