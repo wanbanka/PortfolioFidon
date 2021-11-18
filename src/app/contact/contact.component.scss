@@ -7,8 +7,6 @@
     grid-template-areas: "ensemble";
     
     form {
-        grid-template-columns: 30%;
-        grid-row-gap: 17%;
     
     label {
         font-size: 1.5rem;
@@ -39,7 +37,6 @@
     input{
         
         &[type="submit"].btn-send{
-            grid-area: submit;
             grid-column: 1 / 4;
             border-color: #000000;
             background-color: #ffffff;
@@ -47,7 +44,7 @@
             font-size: $tailleLien - 0.5;
             padding-top: 1rem;
             padding-bottom: 1rem;
-            margin-top: -($hauteurNav) + 3;
+            margin-top: 6vh;
             
             &:hover, &:active, &:focus{
                 @include effectSurvol(#000000, #ffffff);
@@ -59,6 +56,8 @@
     .group-message{
         
         grid-area: textarea;
+        grid-row-start: 1;
+        grid-row-end: 4;
     }
     
 }
@@ -89,14 +88,14 @@
 
 .networks {
     @extend %position_section;
-    margin-top: $hauteurNav + 20;
+    margin-top: 22.5vh;
     width: 100%;
     
     grid-template-areas: "lien1 lien2";
-    grid-template-columns: 20% 20%;
     grid-column-gap: 10%;
     
     a{
+        display: block;
         img{
           -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;  
@@ -131,7 +130,9 @@
     }
     
     .networks{
+        
         grid-template-columns: 25% 25%;
+        margin-top: 32.5vh;
     }
     
 }
