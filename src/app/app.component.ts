@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import {Location} from '@angular/common';
 
@@ -11,7 +11,22 @@ import {ColorsServiceService} from './Services/colors-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit{
+
+    @HostListener('window:popstate', ["$event"])
+    onPopState(event) {
+        
+
+        if(this.router.url.match("/oeuvres\/d+/")) {
+            this.backWorks();
+        } else {
+            this.determine = false;
+            this.comeback = false;
+        }
+
+    }
+
     
     constructor(private location: Location, private colors: ColorsServiceService, private router: Router){
         this.startPage();
