@@ -123,7 +123,9 @@ ul {
 
     ul{
         li{
-            margin-top: 10%;
+
+            margin-top: -5%;
+
             a{
                 font-size: $tailleLien - 1;
                 
@@ -153,5 +155,11 @@ ul {
 @media screen and (max-width: 350px){
     ul{
         justify-content: start;
+
+        li{
+            &:first-child{
+                margin-top: 10%;
+            }
+        }
     }
 }
