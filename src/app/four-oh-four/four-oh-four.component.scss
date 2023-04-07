@@ -11,6 +11,7 @@
 
 @mixin param_image($image){
     
+    
     background-image: url(#{$image});
         background-repeat: no-repeat;
         background-size: contain;
